@@ -1,22 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 import { defaultLocale, isValidLocale, locales } from "@/i18n/config";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
-    pathname.includes(".") ||
     pathname === "/robots.txt" ||
     pathname === "/sitemap.xml" ||
-    pathname.match(/^\/[^/]+\/sitemap\.xml$/)
+    pathname.match(/^\/[^/]+\/sitemap\.xml$/) ||
+    pathname.match(/\.(ico|png|jpg|jpeg|svg|webp|txt|xml|json|woff2?)$/)
   ) {
     return NextResponse.next();
   }
 
   const pathnameLocale = pathname.split("/")[1];
-  if (isValidLocale(pathnameLocale)) {
+  if (pathnameLocale && isValidLocale(pathnameLocale)) {
     return NextResponse.next();
   }
 
@@ -42,9 +42,8 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  return NextResponse.redirect(
-    new URL(`/${detected}${pathname === "/" ? "" : pathname}`, request.url)
-  );
+  const suffix = pathname === "/" ? "" : pathname;
+  return NextResponse.redirect(new URL(`/${detected}${suffix}`, request.url));
 }
 
 export const config = {
