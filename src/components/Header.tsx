@@ -29,14 +29,14 @@ export function Header({ locale, dict }: HeaderProps) {
   const currentPath = pathname.replace(`/${locale}`, "") || "";
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-steel-200">
+    <header className="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-energy-200/70 shadow-sm shadow-energy-900/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href={`/${locale}`} className="flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 bg-energy-600 rounded-md flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-br from-energy-500 to-energy-700 rounded-md flex items-center justify-center shadow-sm">
               <span className="text-white font-bold text-sm">EM</span>
             </div>
-            <span className="font-semibold text-steel-900 text-lg hidden sm:block">
+            <span className="font-semibold text-energy-800 text-lg hidden sm:block">
               {dict.site.name}
             </span>
           </Link>
@@ -46,7 +46,7 @@ export function Header({ locale, dict }: HeaderProps) {
               <Link
                 key={item.key}
                 href={`/${locale}${item.href}`}
-                className="px-2.5 py-2 text-sm text-steel-600 hover:text-energy-600 transition-colors whitespace-nowrap"
+                className="px-2.5 py-2 text-sm text-steel-600 hover:text-energy-700 transition-colors whitespace-nowrap"
               >
                 {dict.nav[item.key]}
               </Link>
@@ -56,7 +56,7 @@ export function Header({ locale, dict }: HeaderProps) {
           <div className="flex items-center gap-3">
             <Link
               href={`/${locale}/quote`}
-              className="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-white bg-energy-600 hover:bg-energy-700 rounded-md transition-colors"
+              className="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-white bg-energy-600 hover:bg-energy-700 rounded-md transition-colors shadow-sm"
             >
               {dict.hero.requestCustomSetup}
             </Link>
@@ -69,7 +69,7 @@ export function Header({ locale, dict }: HeaderProps) {
             <Link
               key={item.key}
               href={`/${locale}${item.href}`}
-              className="px-3 py-1.5 text-xs text-steel-600 hover:text-energy-600 bg-steel-50 hover:bg-energy-50 rounded-full whitespace-nowrap transition-colors shrink-0"
+              className="px-3 py-1.5 text-xs text-steel-600 hover:text-energy-700 bg-energy-50 hover:bg-energy-100 rounded-full whitespace-nowrap transition-colors shrink-0"
             >
               {dict.nav[item.key]}
             </Link>

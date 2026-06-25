@@ -3,6 +3,7 @@ import type { Locale } from "@/i18n/config";
 import { locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageShell } from "@/components/PageShell";
 import { SafetyDisclaimer } from "@/components/SafetyDisclaimer";
 import { SpecTable, ProductActions } from "@/components/SpecTable";
 import { ProductCard } from "@/components/ProductCard";
@@ -62,7 +63,7 @@ export default async function ProductPage({ params }: PageProps) {
   return (
     <>
       <JsonLd data={schemas} />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <PageShell>
         <Breadcrumbs
           items={[
             { name: dict.common.breadcrumbHome, href: `/${locale}` },
@@ -72,27 +73,27 @@ export default async function ProductPage({ params }: PageProps) {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-4">
-          <div className="aspect-square bg-gradient-to-br from-steel-100 to-steel-50 rounded-xl flex items-center justify-center border border-steel-200">
+          <div className="aspect-square bg-gradient-to-br from-energy-50 via-energy-100/60 to-sun-50 rounded-xl flex items-center justify-center border border-energy-200">
             <div className="text-center p-8">
-              <div className="w-24 h-24 mx-auto mb-4 bg-energy-100 rounded-xl flex items-center justify-center">
-                <svg className="w-12 h-12 text-energy-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
+              <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-energy-100 to-sun-100 rounded-xl flex items-center justify-center">
+                <svg className="w-12 h-12 text-energy-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                 </svg>
               </div>
-              <span className="text-sm font-medium text-energy-600">
+              <span className="text-sm font-medium text-energy-700">
                 {dict.categories[product.category]?.title}
               </span>
             </div>
           </div>
 
           <div>
-            <h1 className="text-3xl font-bold text-steel-900">
+            <h1 className="text-3xl font-bold text-energy-900">
               {translation?.name ?? product.model}
             </h1>
             <p className="mt-2 text-steel-500">
               {product.brand} · {product.model}
             </p>
-            <p className="mt-4 text-2xl font-bold text-steel-900">
+            <p className="mt-4 text-2xl font-bold text-energy-900">
               {product.price.toLocaleString()} {product.currency}
             </p>
             <p className="mt-1 text-sm font-medium text-energy-600">
@@ -107,7 +108,7 @@ export default async function ProductPage({ params }: PageProps) {
         </div>
 
         <div className="mt-12">
-          <h2 className="text-xl font-bold text-steel-900 mb-4">
+          <h2 className="text-xl font-bold text-energy-900 mb-4">
             {dict.productLabels.specifications}
           </h2>
           <SpecTable dict={dict} product={product} />
@@ -126,7 +127,7 @@ export default async function ProductPage({ params }: PageProps) {
 
         {related.length > 0 && (
           <div className="mt-16">
-            <h2 className="text-xl font-bold text-steel-900 mb-6">
+            <h2 className="text-xl font-bold text-energy-900 mb-6">
               {dict.productLabels.relatedProducts}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -136,7 +137,7 @@ export default async function ProductPage({ params }: PageProps) {
             </div>
           </div>
         )}
-      </div>
+      </PageShell>
     </>
   );
 }

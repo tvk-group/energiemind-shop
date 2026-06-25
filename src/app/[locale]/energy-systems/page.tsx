@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageShell } from "@/components/PageShell";
 import { SafetyDisclaimer } from "@/components/SafetyDisclaimer";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/data/products";
@@ -29,14 +30,14 @@ export default async function EnergySystemsPage({ params }: PageProps) {
   const page = dict.pages.energySystems;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <PageShell>
       <Breadcrumbs
         items={[
           { name: dict.common.breadcrumbHome, href: `/${locale}` },
           { name: page.heading },
         ]}
       />
-      <h1 className="text-3xl font-bold text-steel-900">{page.heading}</h1>
+      <h1 className="text-3xl font-bold text-energy-900">{page.heading}</h1>
       <p className="mt-4 text-steel-600 max-w-3xl leading-relaxed text-lg">{page.body}</p>
 
       <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -46,9 +47,9 @@ export default async function EnergySystemsPage({ params }: PageProps) {
             <Link
               key={slug}
               href={`/${locale}/${slug}`}
-              className="p-6 bg-white border border-steel-200 rounded-xl hover:border-energy-300 hover:shadow-md transition-all"
+              className="p-6 site-card border rounded-xl hover:border-energy-300 hover:shadow-md transition-all"
             >
-              <h2 className="font-semibold text-steel-900">{cat?.title}</h2>
+              <h2 className="font-semibold text-energy-900">{cat?.title}</h2>
               <p className="mt-2 text-sm text-steel-600 line-clamp-3">{cat?.description}</p>
             </Link>
           );
@@ -56,7 +57,7 @@ export default async function EnergySystemsPage({ params }: PageProps) {
       </div>
 
       <div className="mt-12">
-        <h2 className="text-xl font-bold text-steel-900 mb-6">{dict.nav.shop}</h2>
+        <h2 className="text-xl font-bold text-energy-900 mb-6">{dict.nav.shop}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.slice(0, 6).map((product) => (
             <ProductCard key={product.slug} locale={locale} dict={dict} product={product} />
@@ -67,7 +68,7 @@ export default async function EnergySystemsPage({ params }: PageProps) {
       <div className="mt-12 flex justify-center">
         <Link
           href={`/${locale}/quote`}
-          className="px-8 py-3 text-base font-medium text-white bg-energy-600 hover:bg-energy-700 rounded-lg transition-colors"
+          className="px-8 py-3 text-base font-medium text-energy-900 bg-sun-400 hover:bg-sun-300 rounded-lg transition-colors shadow-sm"
         >
           {dict.hero.requestCustomSetup}
         </Link>
@@ -76,6 +77,6 @@ export default async function EnergySystemsPage({ params }: PageProps) {
       <div className="mt-12">
         <SafetyDisclaimer dict={dict} />
       </div>
-    </div>
+    </PageShell>
   );
 }

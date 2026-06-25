@@ -4,6 +4,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { QuoteForm } from "@/components/QuoteForm";
 import { SafetyDisclaimer } from "@/components/SafetyDisclaimer";
+import { PageShell } from "@/components/PageShell";
 import { buildPageMetadata } from "@/lib/seo";
 
 interface PageProps {
@@ -26,14 +27,14 @@ export default async function QuotePage({ params }: PageProps) {
   const dict = await getDictionary(locale as Locale);
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <PageShell narrow>
       <Breadcrumbs
         items={[
           { name: dict.common.breadcrumbHome, href: `/${locale}` },
           { name: dict.pages.quote.heading },
         ]}
       />
-      <h1 className="text-3xl font-bold text-steel-900">{dict.pages.quote.heading}</h1>
+      <h1 className="text-3xl font-bold text-energy-900">{dict.pages.quote.heading}</h1>
       <p className="mt-3 text-steel-600">{dict.pages.quote.intro}</p>
       <div className="mt-8">
         <QuoteForm dict={dict} />
@@ -41,6 +42,6 @@ export default async function QuotePage({ params }: PageProps) {
       <div className="mt-10">
         <SafetyDisclaimer dict={dict} variant="compact" />
       </div>
-    </div>
+    </PageShell>
   );
 }

@@ -6,14 +6,14 @@ interface FaqSectionProps {
 
 export function FaqSection({ dict }: FaqSectionProps) {
   return (
-    <section className="py-16 bg-steel-50" aria-labelledby="faq-heading">
+    <section className="py-16 bg-energy-50/80 border-t border-energy-200/50" aria-labelledby="faq-heading">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 id="faq-heading" className="text-2xl font-bold text-steel-900 text-center">
+        <h2 id="faq-heading" className="text-2xl font-bold text-energy-900 text-center">
           {dict.faq.title}
         </h2>
         <dl className="mt-10 space-y-6">
           {dict.faq.items.map((item, i) => (
-            <div key={i} className="bg-white border border-steel-200 rounded-lg p-6">
+            <div key={i} className="site-card border rounded-lg p-6 shadow-sm">
               <dt className="font-semibold text-steel-900">{item.question}</dt>
               <dd className="mt-2 text-steel-600 text-sm leading-relaxed">{item.answer}</dd>
             </div>

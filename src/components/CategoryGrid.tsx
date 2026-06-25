@@ -30,9 +30,9 @@ const categoryHrefs: Record<string, string> = {
 
 export function CategoryGrid({ locale, dict }: CategoryGridProps) {
   return (
-    <section className="py-16 lg:py-20">
+    <section className="py-16 lg:py-20 site-section border-y border-energy-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-steel-900">
+        <h2 className="text-2xl sm:text-3xl font-bold text-energy-900">
           {dict.pages.shop.heading}
         </h2>
         <p className="mt-2 text-steel-600 max-w-2xl">{dict.pages.shop.subheading}</p>
@@ -44,10 +44,10 @@ export function CategoryGrid({ locale, dict }: CategoryGridProps) {
               <Link
                 key={slug}
                 href={`/${locale}${categoryHrefs[slug]}`}
-                className="group p-6 bg-white border border-steel-200 rounded-xl hover:border-energy-300 hover:shadow-md transition-all"
+                className="group p-6 site-card border rounded-xl hover:border-energy-300 hover:shadow-md hover:shadow-energy-900/5 transition-all"
               >
-                <div className="w-10 h-10 bg-energy-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-energy-200 transition-colors">
-                  <svg className="w-5 h-5 text-energy-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
+                <div className="w-10 h-10 bg-gradient-to-br from-energy-100 to-energy-200 rounded-lg flex items-center justify-center mb-4 group-hover:from-energy-200 group-hover:to-sun-100 transition-colors">
+                  <svg className="w-5 h-5 text-energy-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>

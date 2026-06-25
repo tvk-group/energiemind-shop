@@ -4,31 +4,59 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --color-energy-50: #e6f0fa;
-  --color-energy-100: #cce0f5;
-  --color-energy-200: #99c2eb;
-  --color-energy-300: #66a3e0;
-  --color-energy-400: #3385d6;
-  --color-energy-500: #0066cc;
-  --color-energy-600: #0052a3;
-  --color-energy-700: #003d7a;
-  --color-energy-800: #002952;
-  --color-energy-900: #001429;
+  /* Corporate energy green */
+  --color-energy-50: #edf7f1;
+  --color-energy-100: #d4efe0;
+  --color-energy-200: #a8dfc1;
+  --color-energy-300: #6ec99f;
+  --color-energy-400: #3aad75;
+  --color-energy-500: #1d9a5f;
+  --color-energy-600: #157a4c;
+  --color-energy-700: #0f5c38;
+  --color-energy-800: #0a3f28;
+  --color-energy-900: #062818;
 
-  --color-steel-50: #f9fafb;
-  --color-steel-100: #f3f4f6;
-  --color-steel-200: #e5e7eb;
-  --color-steel-300: #d1d5db;
-  --color-steel-400: #9ca3af;
-  --color-steel-500: #6b7280;
-  --color-steel-600: #4b5563;
-  --color-steel-700: #374151;
-  --color-steel-800: #1f2937;
-  --color-steel-900: #111827;
+  /* Sun / solar accent */
+  --color-sun-50: #fffbeb;
+  --color-sun-100: #fef3c7;
+  --color-sun-200: #fde68a;
+  --color-sun-300: #fcd34d;
+  --color-sun-400: #fbbf24;
+  --color-sun-500: #f59e0b;
+  --color-sun-600: #d97706;
+
+  /* Neutral slate for text */
+  --color-steel-50: #f4f7f5;
+  --color-steel-100: #e8ede9;
+  --color-steel-200: #d5ddd7;
+  --color-steel-300: #b8c4bb;
+  --color-steel-400: #8a9a8f;
+  --color-steel-500: #647264;
+  --color-steel-600: #4a574d;
+  --color-steel-700: #364038;
+  --color-steel-800: #232a25;
+  --color-steel-900: #141a16;
 }
 
 body {
   font-family: var(--font-sans), system-ui, sans-serif;
+  background-color: #edf7f1;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(251, 191, 36, 0.18), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(45, 190, 126, 0.15), transparent 50%),
+    radial-gradient(ellipse 50% 35% at 0% 20%, rgba(21, 122, 76, 0.12), transparent 45%),
+    linear-gradient(180deg, #edf7f1 0%, #f5faf7 45%, #fffef8 100%);
+  background-attachment: fixed;
+}
+
+.site-section {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.site-card {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(21, 122, 76, 0.14);
 }
 
 .scrollbar-hide {

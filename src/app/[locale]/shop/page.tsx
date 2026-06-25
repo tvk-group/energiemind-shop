@@ -3,6 +3,7 @@ import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { ProductCard } from "@/components/ProductCard";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageShell } from "@/components/PageShell";
 import { SafetyDisclaimer } from "@/components/SafetyDisclaimer";
 import { products } from "@/data/products";
 import { buildPageMetadata } from "@/lib/seo";
@@ -27,14 +28,14 @@ export default async function ShopPage({ params }: PageProps) {
   const dict = await getDictionary(locale as Locale);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <PageShell>
       <Breadcrumbs
         items={[
           { name: dict.common.breadcrumbHome, href: `/${locale}` },
           { name: dict.common.breadcrumbShop },
         ]}
       />
-      <h1 className="text-3xl font-bold text-steel-900">{dict.pages.shop.heading}</h1>
+      <h1 className="text-3xl font-bold text-energy-900">{dict.pages.shop.heading}</h1>
       <p className="mt-2 text-steel-600 max-w-2xl">{dict.pages.shop.subheading}</p>
 
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -46,6 +47,6 @@ export default async function ShopPage({ params }: PageProps) {
       <div className="mt-12">
         <SafetyDisclaimer dict={dict} variant="compact" />
       </div>
-    </div>
+    </PageShell>
   );
 }

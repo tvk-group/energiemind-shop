@@ -12,7 +12,7 @@ export function LanguageSwitcher({ locale, currentPath }: LanguageSwitcherProps)
     <div className="relative group">
       <button
         type="button"
-        className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-steel-600 hover:text-energy-600 border border-steel-200 rounded-md bg-white transition-colors"
+        className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-steel-600 hover:text-energy-700 border border-energy-200 rounded-md bg-white/90 transition-colors"
         aria-haspopup="listbox"
         aria-label="Select language"
       >
@@ -26,7 +26,7 @@ export function LanguageSwitcher({ locale, currentPath }: LanguageSwitcherProps)
       </button>
       <ul
         role="listbox"
-        className="absolute right-0 top-full mt-1 w-48 max-h-80 overflow-y-auto bg-white border border-steel-200 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all z-50"
+        className="absolute right-0 top-full mt-1 w-48 max-h-80 overflow-y-auto bg-white border border-energy-200 rounded-md shadow-lg shadow-energy-900/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all z-50"
       >
         {(Object.entries(localeNames) as [Locale, string][]).map(([code, name]) => (
           <li key={code} role="option" aria-selected={code === locale}>

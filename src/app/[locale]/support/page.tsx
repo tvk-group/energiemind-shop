@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageShell } from "@/components/PageShell";
 import { SafetyDisclaimer } from "@/components/SafetyDisclaimer";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
@@ -30,27 +31,27 @@ export default async function SupportPage({ params }: PageProps) {
   return (
     <>
       <JsonLd data={buildFaqSchema(dict)} />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <PageShell narrow>
         <Breadcrumbs
           items={[
             { name: dict.common.breadcrumbHome, href: `/${locale}` },
             { name: dict.nav.support },
           ]}
         />
-        <h1 className="text-3xl font-bold text-steel-900">{page.heading}</h1>
+        <h1 className="text-3xl font-bold text-energy-900">{page.heading}</h1>
         <p className="mt-3 text-steel-600 text-lg">{page.intro}</p>
 
         <div className="mt-10 space-y-8">
-          <section className="bg-white border border-steel-200 rounded-xl p-6">
-            <h2 className="text-xl font-semibold text-steel-900">{page.installationTitle}</h2>
+          <section className="site-card border rounded-xl p-6">
+            <h2 className="text-xl font-semibold text-energy-900">{page.installationTitle}</h2>
             <p className="mt-3 text-steel-600 leading-relaxed">{page.installationText}</p>
           </section>
-          <section className="bg-white border border-steel-200 rounded-xl p-6">
-            <h2 className="text-xl font-semibold text-steel-900">{page.warrantyTitle}</h2>
+          <section className="site-card border rounded-xl p-6">
+            <h2 className="text-xl font-semibold text-energy-900">{page.warrantyTitle}</h2>
             <p className="mt-3 text-steel-600 leading-relaxed">{page.warrantyText}</p>
           </section>
-          <section className="bg-white border border-steel-200 rounded-xl p-6">
-            <h2 className="text-xl font-semibold text-steel-900">{page.shippingTitle}</h2>
+          <section className="site-card border rounded-xl p-6">
+            <h2 className="text-xl font-semibold text-energy-900">{page.shippingTitle}</h2>
             <p className="mt-3 text-steel-600 leading-relaxed">{page.shippingText}</p>
           </section>
         </div>
@@ -58,7 +59,7 @@ export default async function SupportPage({ params }: PageProps) {
         <div className="mt-12">
           <SafetyDisclaimer dict={dict} />
         </div>
-      </div>
+      </PageShell>
       <FaqSection dict={dict} />
     </>
   );

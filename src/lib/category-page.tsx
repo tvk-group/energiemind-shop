@@ -4,6 +4,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { ProductCard } from "@/components/ProductCard";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SafetyDisclaimer } from "@/components/SafetyDisclaimer";
+import { PageShell } from "@/components/PageShell";
 import { getProductsByCategory } from "@/data/products";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -39,7 +40,7 @@ export async function CategoryPageContent({
   if (!cat) return null;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <PageShell>
       <Breadcrumbs
         items={[
           { name: dict.common.breadcrumbHome, href: `/${locale}` },
@@ -47,7 +48,7 @@ export async function CategoryPageContent({
           { name: cat.title },
         ]}
       />
-      <h1 className="text-3xl font-bold text-steel-900">{cat.title}</h1>
+      <h1 className="text-3xl font-bold text-energy-900">{cat.title}</h1>
       <p className="mt-3 text-steel-600 max-w-3xl leading-relaxed">{cat.description}</p>
 
       {categoryProducts.length > 0 ? (
@@ -57,7 +58,7 @@ export async function CategoryPageContent({
           ))}
         </div>
       ) : (
-        <div className="mt-10 p-8 bg-steel-50 border border-steel-200 rounded-xl text-center">
+        <div className="mt-10 p-8 bg-energy-50 border border-energy-200 rounded-xl text-center">
           <p className="text-steel-600">{dict.availability.customQuote}</p>
         </div>
       )}
@@ -65,6 +66,6 @@ export async function CategoryPageContent({
       <div className="mt-12">
         <SafetyDisclaimer dict={dict} variant="compact" />
       </div>
-    </div>
+    </PageShell>
   );
 }
