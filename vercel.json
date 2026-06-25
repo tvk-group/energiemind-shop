@@ -1,0 +1,66 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "out",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/en",
+      "permanent": false
+    },
+    {
+      "source": "/shop",
+      "destination": "/en/shop",
+      "permanent": false
+    },
+    {
+      "source": "/mining-heaters",
+      "destination": "/en/mining-heaters",
+      "permanent": false
+    },
+    {
+      "source": "/bitcoin-miners",
+      "destination": "/en/bitcoin-miners",
+      "permanent": false
+    },
+    {
+      "source": "/energy-systems",
+      "destination": "/en/energy-systems",
+      "permanent": false
+    },
+    {
+      "source": "/solar-power",
+      "destination": "/en/solar-power",
+      "permanent": false
+    },
+    {
+      "source": "/monitoring-devices",
+      "destination": "/en/monitoring-devices",
+      "permanent": false
+    },
+    {
+      "source": "/accessories",
+      "destination": "/en/accessories",
+      "permanent": false
+    },
+    {
+      "source": "/cooling-systems",
+      "destination": "/en/cooling-systems",
+      "permanent": false
+    },
+    {
+      "source": "/support",
+      "destination": "/en/support",
+      "permanent": false
+    },
+    {
+      "source": "/contact",
+      "destination": "/en/contact",
+      "permanent": false
+    },
+    {
+      "source": "/quote",
+      "destination": "/en/quote",
+      "permanent": false
+    }
+  ]
+}

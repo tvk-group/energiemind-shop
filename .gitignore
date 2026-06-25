@@ -38,6 +38,11 @@ yarn-error.log*
 # vercel
 .vercel
 
+# generated at build time
+/public/sitemap.xml
+/public/robots.txt
+/public/*/sitemap.xml
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
