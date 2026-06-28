@@ -5,6 +5,7 @@ const zhCn: Dictionary = {
     name: "EnergieMIND 商店",
     tagline: "能源感知型挖矿与基础设施硬件",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "首页",
@@ -17,6 +18,7 @@ const zhCn: Dictionary = {
     accessories: "配件",
     support: "支持",
     contact: "联系我们",
+    app: "应用",
   },
   hero: {
     headline: "能源感知型挖矿与基础设施硬件",
@@ -24,6 +26,7 @@ const zhCn: Dictionary = {
       "适用于挖矿余热利用、能源监测、太阳能集成及智能基础设施系统的设备。",
     browseProducts: "浏览产品",
     requestCustomSetup: "申请定制方案",
+    getApp: "获取应用",
   },
   categories: {
     "mining-heaters": {
@@ -320,6 +323,31 @@ const zhCn: Dictionary = {
       body:
         "将挖矿余热利用、太阳能发电及实时监测整合为统一的能源基础设施。我们为住宅、商业及工业部署设计定制硬件套装。",
     },
+    app: {
+      title: "EnergieMIND Shop 应用 | 移动硬件门户",
+      description: "安装 EnergieMIND Shop 应用，浏览挖矿硬件、请求报价并获取支持。",
+      heading: "EnergieMIND Shop 应用",
+      intro: "您的能源感知挖矿硬件移动门户。浏览产品、提交报价请求并联系我们的团队——针对手机和平板优化。",
+      dashboard: "仪表板",
+      quickActions: "快捷操作",
+      recentActivity: "最近的报价请求",
+      noActivity: "尚无报价请求。请从报价标签页提交您的第一个询价。",
+      installTitle: "安装商店应用",
+      installIntro: "将 EnergieMIND Shop 添加到主屏幕——iOS 和 Android 上通过添加到主屏幕即可使用。",
+      iphoneSteps: "Safari → app.energiemind.shop → 分享 → 添加到主屏幕",
+      androidSteps: "Chrome → app.energiemind.shop → 菜单 → 安装应用或添加到主屏幕",
+      desktopSteps: "Chrome 或 Edge → 地址栏安装图标，或收藏 app.energiemind.shop",
+      openApp: "打开应用",
+      installed: "应用已在设备上就绪",
+      installPrompt: "安装以快速访问报价和产品目录",
+      installButton: "安装应用",
+      offlineNote: "首次访问后缓存页面可离线使用",
+      tabHome: "首页",
+      tabShop: "商店",
+      tabQuote: "报价",
+      tabSupport: "支持",
+      backToWebsite: "完整网站",
+    },
   },
   safety: {
     title: "重要安全与法律声明",
@@ -371,6 +399,10 @@ const zhCn: Dictionary = {
         question: "你们提供安装服务吗？",
         answer:
           "我们提供安装文档，并可为您对接支持地区的持证电工及暖通专业人员。",
+      },
+      {
+        question: "如何获取 EnergieMIND Shop 应用？",
+        answer: "在手机上打开 app.energiemind.shop 并添加到主屏幕（iPhone：Safari → 分享 → 添加到主屏幕；Android：Chrome → 安装应用）。应用提供商店、报价和支持的移动访问。",
       },
     ],
   },

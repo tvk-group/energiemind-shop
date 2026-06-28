@@ -5,6 +5,7 @@ const nl: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "Energiebewuste mining- en infrastructuurhardware",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "Home",
@@ -17,6 +18,7 @@ const nl: Dictionary = {
     accessories: "Accessoires",
     support: "Support",
     contact: "Contact",
+    app: "App",
   },
   hero: {
     headline: "Energiebewuste mining- en infrastructuurhardware",
@@ -24,6 +26,7 @@ const nl: Dictionary = {
       "Apparatuur voor miningwarmtehergebruik, energiemonitoring, zonne-integratie en intelligente infrastructuursystemen.",
     browseProducts: "Producten bekijken",
     requestCustomSetup: "Aangepaste installatie aanvragen",
+    getApp: "App downloaden",
   },
   categories: {
     "mining-heaters": {
@@ -320,6 +323,31 @@ const nl: Dictionary = {
       body:
         "Combineer miningwarmtehergebruik, zonne-opwekking en realtime monitoring in één geïntegreerde energie-infrastructuur. Wij ontwerpen aangepaste hardwarebundels voor residentiële, commerciële en industriële implementaties.",
     },
+    app: {
+      title: "EnergieMIND Shop App | Mobiel hardwareportaal",
+      description: "Installeer de EnergieMIND Shop app om mininghardware te bekijken, offertes aan te vragen en support te krijgen.",
+      heading: "EnergieMIND Shop App",
+      intro: "Uw mobiele portaal voor energiebewuste mininghardware. Bekijk producten, dien offertes in en neem contact op — geoptimaliseerd voor telefoon en tablet.",
+      dashboard: "Dashboard",
+      quickActions: "Snelle acties",
+      recentActivity: "Recente offerteaanvragen",
+      noActivity: "Nog geen offerteaanvragen. Dien uw eerste aanvraag in via het tabblad Offerte.",
+      installTitle: "Shop-app installeren",
+      installIntro: "Voeg EnergieMIND Shop toe aan uw startscherm — werkt vandaag via Zet op beginscherm op iOS en Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Delen → Zet op beginscherm",
+      androidSteps: "Chrome → app.energiemind.shop → menu → App installeren of Toevoegen aan startscherm",
+      desktopSteps: "Chrome of Edge → installatiepictogram in de adresbalk of bladwijzer app.energiemind.shop",
+      openApp: "App openen",
+      installed: "App klaar op uw apparaat",
+      installPrompt: "Installeer voor snelle toegang tot offertes en catalogus",
+      installButton: "App installeren",
+      offlineNote: "Gecachte pagina's offline beschikbaar na eerste bezoek",
+      tabHome: "Home",
+      tabShop: "Shop",
+      tabQuote: "Offerte",
+      tabSupport: "Support",
+      backToWebsite: "Volledige website",
+    },
   },
   safety: {
     title: "Belangrijke veiligheids- en juridische mededeling",
@@ -371,6 +399,10 @@ const nl: Dictionary = {
         question: "Bieden jullie installatie aan?",
         answer:
           "Wij leveren installatiedocumentatie en kunnen u in contact brengen met gecertificeerde elektriciens en HVAC-professionals in ondersteunde regio's.",
+      },
+      {
+        question: "Hoe krijg ik de EnergieMIND Shop app?",
+        answer: "Open app.energiemind.shop op uw telefoon en voeg toe aan het startscherm (Safari → Delen → Zet op beginscherm op iPhone; Chrome → App installeren op Android). De app biedt mobiele toegang tot shop, offertes en support.",
       },
     ],
   },

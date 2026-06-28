@@ -1,0 +1,38 @@
+{
+  "name": "EnergieMIND Shop",
+  "short_name": "EM Shop",
+  "description": "Energy-aware mining and infrastructure hardware shop. Browse products, request quotes, and manage inquiries.",
+  "start_url": "/en/app/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#edf7f1",
+  "theme_color": "#157a4c",
+  "categories": ["shopping", "business", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Browse Shop",
+      "url": "/en/app/shop",
+      "description": "View hardware catalog"
+    },
+    {
+      "name": "Request Quote",
+      "url": "/en/app/quote",
+      "description": "Submit a quote request"
+    }
+  ]
+}

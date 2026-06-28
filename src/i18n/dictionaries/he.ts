@@ -5,6 +5,7 @@ const he: Dictionary = {
     name: "חנות EnergieMIND",
     tagline: "חומרת כרייה ותשתיות מודעות לאנרגיה",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "בית",
@@ -17,6 +18,7 @@ const he: Dictionary = {
     accessories: "אביזרים",
     support: "תמיכה",
     contact: "צור קשר",
+    app: "אפליקציה",
   },
   hero: {
     headline: "חומרת כרייה ותשתיות מודעות לאנרגיה",
@@ -24,6 +26,7 @@ const he: Dictionary = {
       "ציוד לניצול חום כרייה, ניטור אנרגיה, אינטגרציה סולארית ומערכות תשתית חכמות.",
     browseProducts: "עיין במוצרים",
     requestCustomSetup: "בקש התקנה מותאמת",
+    getApp: "קבל את האפליקציה",
   },
   categories: {
     "mining-heaters": {
@@ -319,6 +322,31 @@ const he: Dictionary = {
       heading: "מערכות אנרגיה משולבות",
       body: "שלב ניצול חום כרייה, ייצור סולארי וניטור בזמן אמת לתשתית אנרגיה מאוחדת. אנו מתכננים חבילות חומרה מותאמות לפריסות מגורים, מסחריות ותעשייתיות.",
     },
+    app: {
+      title: "אפליקציית EnergieMIND Shop | פורטל חומרה נייד",
+      description: "התקן את אפליקציית EnergieMIND Shop לעיון בחומרת כרייה, בקשת הצעות מחיר וגישה לתמיכה.",
+      heading: "אפליקציית EnergieMIND Shop",
+      intro: "הפורטל הנייד שלך לחומרת כרייה מודעת אנרגיה. עיין במוצרים, שלח הצעות מחיר וצור קשר עם הצוות — מותאם לטלפון וטאבלט.",
+      dashboard: "לוח בקרה",
+      quickActions: "פעולות מהירות",
+      recentActivity: "בקשות הצעת מחיר אחרונות",
+      noActivity: "אין עדיין בקשות הצעת מחיר. שלח את הבקשה הראשונה שלך מלשונית הצעת מחיר.",
+      installTitle: "התקן את אפליקציית החנות",
+      installIntro: "הוסף את EnergieMIND Shop למסך הבית — עובד היום דרך הוסף למסך הבית ב-iOS ו-Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → שתף → הוסף למסך הבית",
+      androidSteps: "Chrome → app.energiemind.shop → תפריט → התקן אפליקציה או הוסף למסך הבית",
+      desktopSteps: "Chrome או Edge → סמל התקנה בשורת הכתובת או סמן app.energiemind.shop",
+      openApp: "פתח אפליקציה",
+      installed: "האפליקציה מוכנה במכשיר שלך",
+      installPrompt: "התקן לגישה מהירה להצעות מחיר וקטלוג",
+      installButton: "התקן אפליקציה",
+      offlineNote: "דפים במטמון זמינים לא מקוון לאחר הביקור הראשון",
+      tabHome: "בית",
+      tabShop: "חנות",
+      tabQuote: "הצעת מחיר",
+      tabSupport: "תמיכה",
+      backToWebsite: "אתר מלא",
+    },
   },
   safety: {
     title: "הודעת בטיחות ומשפט חשובה",
@@ -370,6 +398,10 @@ const he: Dictionary = {
         question: "האם אתם מציעים התקנה?",
         answer:
           "אנו מספקים תיעוד התקנה ויכולים לחבר אותך לחשמלאים ואנשי HVAC מוסמכים באזורים נתמכים.",
+      },
+      {
+        question: "איך מקבלים את אפליקציית EnergieMIND Shop?",
+        answer: "פתח את app.energiemind.shop בטלפון והוסף למסך הבית (iPhone: Safari → שתף → הוסף למסך הבית; Android: Chrome → התקן אפליקציה). האפליקציה מספקת גישה ניידת לחנות, הצעות מחיר ותמיכה.",
       },
     ],
   },

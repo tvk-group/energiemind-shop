@@ -5,6 +5,7 @@ const tr: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "Enerji Odaklı Madencilik ve Altyapı Donanımı",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "Ana Sayfa",
@@ -17,6 +18,7 @@ const tr: Dictionary = {
     accessories: "Aksesuarlar",
     support: "Destek",
     contact: "İletişim",
+    app: "Uygulama",
   },
   hero: {
     headline: "Enerji Odaklı Madencilik ve Altyapı Donanımı",
@@ -24,6 +26,7 @@ const tr: Dictionary = {
       "Madencilik ısı kullanımı, enerji izleme, güneş entegrasyonu ve akıllı altyapı sistemleri için ekipman.",
     browseProducts: "Ürünlere Göz At",
     requestCustomSetup: "Özel Kurulum Talep Et",
+    getApp: "Uygulamayı İndir",
   },
   categories: {
     "mining-heaters": {
@@ -319,6 +322,31 @@ const tr: Dictionary = {
       heading: "Entegre Enerji Sistemleri",
       body:
         "Madencilik ısı kullanımı, güneş üretimi ve gerçek zamanlı izlemeyi birleşik bir enerji altyapısında bir araya getirin. Konut, ticari ve endüstriyel kurulumlar için özel donanım paketleri tasarlıyoruz.",
+    },
+    app: {
+      title: "EnergieMIND Shop Uygulaması | Mobil Donanım Portalı",
+      description: "Madencilik donanımına göz atmak, teklif talep etmek ve destek almak için EnergieMIND Shop uygulamasını ana ekranınıza ekleyin.",
+      heading: "EnergieMIND Shop Uygulaması",
+      intro: "Enerji odaklı madencilik donanımı için mobil portalınız. Ürünlere göz atın, teklif gönderin ve ekibimizle iletişime geçin — telefon ve tablet için optimize edildi.",
+      dashboard: "Kontrol Paneli",
+      quickActions: "Hızlı İşlemler",
+      recentActivity: "Son Teklif Talepleri",
+      noActivity: "Henüz teklif talebi yok. Teklif sekmesinden ilk talebinizi gönderin.",
+      installTitle: "Mağaza Uygulamasını Yükleyin",
+      installIntro: "Hızlı erişim için EnergieMIND Shop'u ana ekranınıza ekleyin — iOS ve Android'de Ana Ekrana Ekle ile bugün çalışır.",
+      iphoneSteps: "Safari → app.energiemind.shop → Paylaş → Ana Ekrana Ekle",
+      androidSteps: "Chrome → app.energiemind.shop → menü → Uygulamayı yükle veya Ana ekrana ekle",
+      desktopSteps: "Chrome veya Edge → adres çubuğundaki yükle simgesi veya app.energiemind.shop'u yer imlerine ekleyin",
+      openApp: "Uygulamayı Aç",
+      installed: "Uygulama cihazınızda hazır",
+      installPrompt: "Teklifler ve ürün kataloğuna hızlı erişim için yükleyin",
+      installButton: "Uygulamayı Yükle",
+      offlineNote: "İlk ziyaretten sonra önbelleğe alınan sayfalar çevrimdışı kullanılabilir",
+      tabHome: "Ana Sayfa",
+      tabShop: "Mağaza",
+      tabQuote: "Teklif",
+      tabSupport: "Destek",
+      backToWebsite: "Tam Site",
     },
   },
   safety: {

@@ -5,6 +5,7 @@ const sv: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "Energimedveten gruv- och infrastrukturhårdvara",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "Hem",
@@ -17,6 +18,7 @@ const sv: Dictionary = {
     accessories: "Tillbehör",
     support: "Support",
     contact: "Kontakt",
+    app: "App",
   },
   hero: {
     headline: "Energimedveten gruv- och infrastrukturhårdvara",
@@ -24,6 +26,7 @@ const sv: Dictionary = {
       "Utrustning för nyttiggörande av gruvvärme, energiövervakning, solintegration och intelligenta infrastruktursystem.",
     browseProducts: "Bläddra bland produkter",
     requestCustomSetup: "Begär anpassad installation",
+    getApp: "Hämta appen",
   },
   categories: {
     "mining-heaters": {
@@ -319,6 +322,31 @@ const sv: Dictionary = {
       heading: "Integrerade energisystem",
       body: "Kombinera nyttiggörande av gruvvärme, solproduktion och realtidsövervakning i en enhetlig energiinfrastruktur. Vi designar anpassade hårdvarupaket för bostads-, kommersiella och industriella installationer.",
     },
+    app: {
+      title: "EnergieMIND Shop-appen | Mobilt hårdvaruportal",
+      description: "Installera EnergieMIND Shop-appen för att bläddra i mining-hårdvara, begära offerter och få support.",
+      heading: "EnergieMIND Shop-appen",
+      intro: "Din mobila portal för energimedveten mining-hårdvara. Bläddra produkter, skicka offerter och kontakta teamet — optimerad för telefon och surfplatta.",
+      dashboard: "Instrumentpanel",
+      quickActions: "Snabbåtgärder",
+      recentActivity: "Senaste offertförfrågningar",
+      noActivity: "Inga offertförfrågningar ännu. Skicka din första förfrågan från fliken Offert.",
+      installTitle: "Installera butiksappen",
+      installIntro: "Lägg till EnergieMIND Shop på hemskärmen — fungerar idag via Lägg till på hemskärmen på iOS och Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Dela → Lägg till på hemskärmen",
+      androidSteps: "Chrome → app.energiemind.shop → meny → Installera app eller Lägg till på hemskärmen",
+      desktopSteps: "Chrome eller Edge → installationsikon i adressfältet eller bokmärk app.energiemind.shop",
+      openApp: "Öppna appen",
+      installed: "Appen är redo på enheten",
+      installPrompt: "Installera för snabb åtkomst till offerter och katalog",
+      installButton: "Installera app",
+      offlineNote: "Cachade sidor tillgängliga offline efter första besöket",
+      tabHome: "Hem",
+      tabShop: "Butik",
+      tabQuote: "Offert",
+      tabSupport: "Support",
+      backToWebsite: "Fullständig webbplats",
+    },
   },
   safety: {
     title: "Viktigt säkerhets- och juridiskt meddelande",
@@ -370,6 +398,10 @@ const sv: Dictionary = {
         question: "Erbjuder ni installation?",
         answer:
           "Vi tillhandahåller installationsdokumentation och kan koppla dig till certifierade elektriker och HVAC-proffs i regioner vi stödjer.",
+      },
+      {
+        question: "Hur får jag EnergieMIND Shop-appen?",
+        answer: "Öppna app.energiemind.shop på telefonen och lägg till på hemskärmen (iPhone: Safari → Dela → Lägg till på hemskärmen; Android: Chrome → Installera app). Appen ger mobil åtkomst till butik, offerter och support.",
       },
     ],
   },

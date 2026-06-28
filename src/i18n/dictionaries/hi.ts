@@ -5,6 +5,7 @@ const hi: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "ऊर्जा-सचेत माइनिंग और इन्फ्रास्ट्रक्चर हार्डवेयर",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "होम",
@@ -17,6 +18,7 @@ const hi: Dictionary = {
     accessories: "एक्सेसरीज़",
     support: "सहायता",
     contact: "संपर्क",
+    app: "ऐप",
   },
   hero: {
     headline: "ऊर्जा-सचेत माइनिंग और इन्फ्रास्ट्रक्चर हार्डवेयर",
@@ -24,6 +26,7 @@ const hi: Dictionary = {
       "माइनिंग ऊष्मा उपयोग, ऊर्जा निगरानी, सोलर एकीकरण और बुद्धिमान इन्फ्रास्ट्रक्चर प्रणालियों के लिए उपकरण।",
     browseProducts: "उत्पाद देखें",
     requestCustomSetup: "कस्टम सेटअप का अनुरोध करें",
+    getApp: "ऐप प्राप्त करें",
   },
   categories: {
     "mining-heaters": {
@@ -319,6 +322,31 @@ const hi: Dictionary = {
       heading: "एकीकृत ऊर्जा प्रणालियाँ",
       body:
         "माइनिंग ऊष्मा उपयोग, सोलर जनरेशन और रीयल-टाइम मॉनिटरिंग को एकीकृत ऊर्जा इन्फ्रास्ट्रक्चर में जोड़ें। हम आवासीय, वाणिज्यिक और औद्योगिक तैनाती के लिए कस्टम हार्डवेयर बंडल डिज़ाइन करते हैं।",
+    },
+    app: {
+      title: "EnergieMIND Shop ऐप | मोबाइल हार्डवेयर पोर्टल",
+      description: "माइनिंग हार्डवेयर ब्राउज़ करने, कोटेशन अनुरोध करने और सहायता पाने के लिए EnergieMIND Shop ऐप इंस्टॉल करें।",
+      heading: "EnergieMIND Shop ऐप",
+      intro: "ऊर्जा-जागरूक माइनिंग हार्डवेयर के लिए आपका मोबाइल पोर्टल। उत्पाद देखें, कोटेशन भेजें और हमारी टीम से संपर्क करें — फोन और टैबलेट के लिए अनुकूलित।",
+      dashboard: "डैशबोर्ड",
+      quickActions: "त्वरित कार्य",
+      recentActivity: "हाल के कोटेशन अनुरोध",
+      noActivity: "अभी तक कोई कोटेशन अनुरोध नहीं। कोटेशन टैब से अपना पहला अनुरोध भेजें।",
+      installTitle: "शॉप ऐप इंस्टॉल करें",
+      installIntro: "त्वरित पहुंच के लिए EnergieMIND Shop को होम स्क्रीन पर जोड़ें — iOS और Android पर आज ही काम करता है।",
+      iphoneSteps: "Safari → app.energiemind.shop → शेयर → होम स्क्रीन में जोड़ें",
+      androidSteps: "Chrome → app.energiemind.shop → मेनू → ऐप इंस्टॉल करें या होम स्क्रीन में जोड़ें",
+      desktopSteps: "Chrome या Edge → एड्रेस बार में इंस्टॉल आइकन या app.energiemind.shop बुकमार्क करें",
+      openApp: "ऐप खोलें",
+      installed: "ऐप आपके डिवाइस पर तैयार",
+      installPrompt: "कोटेशन और कैटलॉग तक त्वरित पहुंच के लिए इंस्टॉल करें",
+      installButton: "ऐप इंस्टॉल करें",
+      offlineNote: "पहली विज़िट के बाद कैश किए गए पेज ऑफलाइन उपलब्ध",
+      tabHome: "होम",
+      tabShop: "शॉप",
+      tabQuote: "कोटेशन",
+      tabSupport: "सहायता",
+      backToWebsite: "पूर्ण वेबसाइट",
     },
   },
   safety: {

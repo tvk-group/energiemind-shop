@@ -5,6 +5,7 @@ const id: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "Perangkat Keras Penambangan & Infrastruktur Sadar Energi",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "Beranda",
@@ -17,6 +18,7 @@ const id: Dictionary = {
     accessories: "Aksesori",
     support: "Dukungan",
     contact: "Kontak",
+    app: "Aplikasi",
   },
   hero: {
     headline: "Perangkat Keras Penambangan & Infrastruktur Sadar Energi",
@@ -24,6 +26,7 @@ const id: Dictionary = {
       "Peralatan untuk pemanfaatan panas penambangan, pemantauan energi, integrasi surya, dan sistem infrastruktur cerdas.",
     browseProducts: "Jelajahi Produk",
     requestCustomSetup: "Minta Instalasi Kustom",
+    getApp: "Dapatkan Aplikasi",
   },
   categories: {
     "mining-heaters": {
@@ -319,6 +322,31 @@ const id: Dictionary = {
       heading: "Sistem Energi Terintegrasi",
       body: "Gabungkan pemanfaatan panas penambangan, pembangkitan surya, dan pemantauan real-time ke dalam infrastruktur energi terpadu. Kami merancang paket perangkat keras kustom untuk penerapan hunian, komersial, dan industri.",
     },
+    app: {
+      title: "Aplikasi EnergieMIND Shop | Portal Perangkat Keras Mobile",
+      description: "Instal aplikasi EnergieMIND Shop untuk menjelajahi perangkat keras mining, meminta penawaran, dan mengakses dukungan.",
+      heading: "Aplikasi EnergieMIND Shop",
+      intro: "Portal mobile Anda untuk perangkat keras mining sadar energi. Jelajahi produk, kirim penawaran, dan hubungi tim kami — dioptimalkan untuk ponsel dan tablet.",
+      dashboard: "Dasbor",
+      quickActions: "Tindakan Cepat",
+      recentActivity: "Permintaan Penawaran Terbaru",
+      noActivity: "Belum ada permintaan penawaran. Kirim permintaan pertama Anda dari tab Penawaran.",
+      installTitle: "Instal Aplikasi Toko",
+      installIntro: "Tambahkan EnergieMIND Shop ke layar utama — berfungsi hari ini melalui Tambahkan ke Layar Utama di iOS dan Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Bagikan → Tambahkan ke Layar Utama",
+      androidSteps: "Chrome → app.energiemind.shop → menu → Instal aplikasi atau Tambahkan ke layar utama",
+      desktopSteps: "Chrome atau Edge → ikon instal di bilah alamat atau tandai app.energiemind.shop",
+      openApp: "Buka Aplikasi",
+      installed: "Aplikasi siap di perangkat Anda",
+      installPrompt: "Instal untuk akses cepat ke penawaran dan katalog",
+      installButton: "Instal Aplikasi",
+      offlineNote: "Halaman cache tersedia offline setelah kunjungan pertama",
+      tabHome: "Beranda",
+      tabShop: "Toko",
+      tabQuote: "Penawaran",
+      tabSupport: "Dukungan",
+      backToWebsite: "Situs Lengkap",
+    },
   },
   safety: {
     title: "Pemberitahuan Keselamatan & Hukum Penting",
@@ -370,6 +398,10 @@ const id: Dictionary = {
         question: "Apakah Anda menawarkan instalasi?",
         answer:
           "Kami menyediakan dokumentasi instalasi dan dapat menghubungkan Anda dengan teknisi listrik dan profesional HVAC bersertifikat di wilayah yang didukung.",
+      },
+      {
+        question: "Bagaimana cara mendapatkan aplikasi EnergieMIND Shop?",
+        answer: "Buka app.energiemind.shop di ponsel Anda dan tambahkan ke layar utama (iPhone: Safari → Bagikan → Tambahkan ke Layar Utama; Android: Chrome → Instal aplikasi). Aplikasi menyediakan akses mobile ke toko, penawaran, dan dukungan.",
       },
     ],
   },

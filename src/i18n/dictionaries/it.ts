@@ -5,6 +5,7 @@ const it: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "Hardware per mining e infrastrutture energy-aware",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "Home",
@@ -17,6 +18,7 @@ const it: Dictionary = {
     accessories: "Accessori",
     support: "Supporto",
     contact: "Contatti",
+    app: "App",
   },
   hero: {
     headline: "Hardware per mining e infrastrutture energy-aware",
@@ -24,6 +26,7 @@ const it: Dictionary = {
       "Attrezzature per il riutilizzo del calore da mining, monitoraggio energetico, integrazione solare e sistemi di infrastruttura intelligenti.",
     browseProducts: "Sfoglia i prodotti",
     requestCustomSetup: "Richiedi installazione personalizzata",
+    getApp: "Scarica l'app",
   },
   categories: {
     "mining-heaters": {
@@ -320,6 +323,31 @@ const it: Dictionary = {
       body:
         "Combinate il riutilizzo del calore da mining, la generazione solare e il monitoraggio in tempo reale in un'infrastruttura energetica unificata. Progettiamo pacchetti hardware personalizzati per installazioni residenziali, commerciali e industriali.",
     },
+    app: {
+      title: "App EnergieMIND Shop | Portale hardware mobile",
+      description: "Installa l'app EnergieMIND Shop per sfogliare hardware di mining, richiedere preventivi e accedere al supporto.",
+      heading: "App EnergieMIND Shop",
+      intro: "Il tuo portale mobile per hardware di mining energy-aware. Sfoglia prodotti, invia preventivi e contatta il nostro team — ottimizzato per telefono e tablet.",
+      dashboard: "Dashboard",
+      quickActions: "Azioni rapide",
+      recentActivity: "Richieste di preventivo recenti",
+      noActivity: "Nessuna richiesta ancora. Invia la prima richiesta dalla scheda Preventivo.",
+      installTitle: "Installa l'app Shop",
+      installIntro: "Aggiungi EnergieMIND Shop alla schermata Home — funziona oggi con Aggiungi a Home su iOS e Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Condividi → Aggiungi a Home",
+      androidSteps: "Chrome → app.energiemind.shop → menu → Installa app o Aggiungi a schermata Home",
+      desktopSteps: "Chrome o Edge → icona installa nella barra degli indirizzi o aggiungi app.energiemind.shop ai preferiti",
+      openApp: "Apri app",
+      installed: "App pronta sul dispositivo",
+      installPrompt: "Installa per accesso rapido a preventivi e catalogo",
+      installButton: "Installa app",
+      offlineNote: "Pagine in cache disponibili offline dopo la prima visita",
+      tabHome: "Home",
+      tabShop: "Shop",
+      tabQuote: "Preventivo",
+      tabSupport: "Supporto",
+      backToWebsite: "Sito completo",
+    },
   },
   safety: {
     title: "Importante avviso su sicurezza e aspetti legali",
@@ -371,6 +399,10 @@ const it: Dictionary = {
         question: "Offrite l'installazione?",
         answer:
           "Forniamo documentazione di installazione e possiamo mettervi in contatto con elettricisti e professionisti HVAC certificati nelle regioni supportate.",
+      },
+      {
+        question: "Come ottengo l'app EnergieMIND Shop?",
+        answer: "Apri app.energiemind.shop sul telefono e aggiungilo alla schermata Home (Safari → Condividi → Aggiungi a Home su iPhone; Chrome → Installa app su Android). L'app offre accesso mobile a shop, preventivi e supporto.",
       },
     ],
   },

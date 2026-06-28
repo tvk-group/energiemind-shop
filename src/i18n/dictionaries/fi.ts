@@ -5,6 +5,7 @@ const fi: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "Energiatietoinen louhinta- ja infrastruktuurilaitteisto",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "Etusivu",
@@ -17,6 +18,7 @@ const fi: Dictionary = {
     accessories: "Tarvikkeet",
     support: "Tuki",
     contact: "Yhteystiedot",
+    app: "Sovellus",
   },
   hero: {
     headline: "Energiatietoinen louhinta- ja infrastruktuurilaitteisto",
@@ -24,6 +26,7 @@ const fi: Dictionary = {
       "Laitteistoa louhintalämmön hyödyntämiseen, energianvalvontaan, aurinkoenergian integrointiin ja älykkäisiin infrastruktuurijärjestelmiin.",
     browseProducts: "Selaa tuotteita",
     requestCustomSetup: "Pyydä räätälöity asennus",
+    getApp: "Hae sovellus",
   },
   categories: {
     "mining-heaters": {
@@ -319,6 +322,31 @@ const fi: Dictionary = {
       heading: "Integroidut energiajärjestelmät",
       body: "Yhdistä louhintalämmön hyödyntäminen, aurinkotuotanto ja reaaliaikainen valvonta yhtenäiseksi energiainfrastruktuuriksi. Suunnittelemme räätälöityjä laitteistopaketteja asuin-, kaupallisiin ja teollisiin kohteisiin.",
     },
+    app: {
+      title: "EnergieMIND Shop -sovellus | Mobiili laitteisto-portaali",
+      description: "Asenna EnergieMIND Shop -sovellus selataksesi louhintalaitteita, pyytääksesi tarjouksia ja saadaksesi tukea.",
+      heading: "EnergieMIND Shop -sovellus",
+      intro: "Mobiiliportaalisi energiatietoiselle louhintalaitteistolle. Selaa tuotteita, lähetä tarjouspyyntöjä ja ota yhteyttä tiimiin — optimoitu puhelimelle ja tabletille.",
+      dashboard: "Kojelauta",
+      quickActions: "Pikatoiminnot",
+      recentActivity: "Viimeisimmät tarjouspyynnöt",
+      noActivity: "Ei vielä tarjouspyyntöjä. Lähetä ensimmäinen pyyntö Tarjous-välilehdeltä.",
+      installTitle: "Asenna kauppasovellus",
+      installIntro: "Lisää EnergieMIND Shop kotinäytölle — toimii tänään Lisää kotinäytölle -toiminnolla iOS:llä ja Androidilla.",
+      iphoneSteps: "Safari → app.energiemind.shop → Jaa → Lisää kotinäytölle",
+      androidSteps: "Chrome → app.energiemind.shop → valikko → Asenna sovellus tai Lisää kotinäytölle",
+      desktopSteps: "Chrome tai Edge → asennuskuvake osoitepalkissa tai lisää app.energiemind.shop kirjanmerkkeihin",
+      openApp: "Avaa sovellus",
+      installed: "Sovellus valmiina laitteellasi",
+      installPrompt: "Asenna nopeaa pääsyä tarjouksiin ja luetteloon varten",
+      installButton: "Asenna sovellus",
+      offlineNote: "Välimuistissa olevat sivut käytettävissä offline-tilassa ensimmäisen käynnin jälkeen",
+      tabHome: "Koti",
+      tabShop: "Kauppa",
+      tabQuote: "Tarjous",
+      tabSupport: "Tuki",
+      backToWebsite: "Koko sivusto",
+    },
   },
   safety: {
     title: "Tärkeä turvallisuus- ja oikeudellinen ilmoitus",
@@ -370,6 +398,10 @@ const fi: Dictionary = {
         question: "Tarjoatteko asennusta?",
         answer:
           "Tarjoamme asennusdokumentaation ja voimme yhdistää sinut sertifioituihin sähköasentajiin ja LVI-ammattilaisiin tuetuilla alueilla.",
+      },
+      {
+        question: "Miten saan EnergieMIND Shop -sovelluksen?",
+        answer: "Avaa app.energiemind.shop puhelimella ja lisää kotinäytölle (iPhone: Safari → Jaa → Lisää kotinäytölle; Android: Chrome → Asenna sovellus). Sovellus tarjoaa mobiilipääsyn kauppaan, tarjouksiin ja tukeen.",
       },
     ],
   },

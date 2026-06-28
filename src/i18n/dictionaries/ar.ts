@@ -5,6 +5,7 @@ const ar: Dictionary = {
     name: "متجر EnergieMIND",
     tagline: "أجهزة التعدين والبنية التحتية الواعية بالطاقة",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "الرئيسية",
@@ -17,6 +18,7 @@ const ar: Dictionary = {
     accessories: "الملحقات",
     support: "الدعم",
     contact: "اتصل بنا",
+    app: "التطبيق",
   },
   hero: {
     headline: "أجهزة التعدين والبنية التحتية الواعية بالطاقة",
@@ -24,6 +26,7 @@ const ar: Dictionary = {
       "معدات لإعادة استخدام حرارة التعدين، ومراقبة الطاقة، وتكامل الطاقة الشمسية وأنظمة البنية التحتية الذكية.",
     browseProducts: "تصفح المنتجات",
     requestCustomSetup: "طلب إعداد مخصص",
+    getApp: "احصل على التطبيق",
   },
   categories: {
     "mining-heaters": {
@@ -320,6 +323,31 @@ const ar: Dictionary = {
       body:
         "اجمع بين إعادة استخدام حرارة التعدين والتوليد الشمسي والمراقبة في الوقت الفعلي في بنية طاقة موحدة. نصمم حزم أجهزة مخصصة للنشر السكني والتجاري والصناعي.",
     },
+    app: {
+      title: "تطبيق EnergieMIND Shop | بوابة الأجهزة المحمولة",
+      description: "ثبّت تطبيق EnergieMIND Shop لتصفح أجهزة التعدين وطلب عروض الأسعار والوصول إلى الدعم.",
+      heading: "تطبيق EnergieMIND Shop",
+      intro: "بوابتك المحمولة لأجهزة التعدين الواعية بالطاقة. تصفح المنتجات وأرسل طلبات العروض وتواصل مع فريقنا — محسّن للهاتف والجهاز اللوحي.",
+      dashboard: "لوحة التحكم",
+      quickActions: "إجراءات سريعة",
+      recentActivity: "طلبات العروض الأخيرة",
+      noActivity: "لا توجد طلبات عروض بعد. أرسل استفسارك الأول من تبويب العرض.",
+      installTitle: "تثبيت تطبيق المتجر",
+      installIntro: "أضف EnergieMIND Shop إلى الشاشة الرئيسية — يعمل اليوم عبر الإضافة إلى الشاشة الرئيسية على iOS وAndroid.",
+      iphoneSteps: "Safari → app.energiemind.shop → مشاركة → إضافة إلى الشاشة الرئيسية",
+      androidSteps: "Chrome → app.energiemind.shop → القائمة → تثبيت التطبيق أو إضافة إلى الشاشة الرئيسية",
+      desktopSteps: "Chrome أو Edge → أيقونة التثبيت في شريط العنوان أو أضف app.energiemind.shop للمفضلة",
+      openApp: "فتح التطبيق",
+      installed: "التطبيق جاهز على جهازك",
+      installPrompt: "ثبّت للوصول السريع إلى العروض وكتالوج المنتجات",
+      installButton: "تثبيت التطبيق",
+      offlineNote: "الصفحات المخزنة متاحة دون اتصال بعد الزيارة الأولى",
+      tabHome: "الرئيسية",
+      tabShop: "المتجر",
+      tabQuote: "عرض",
+      tabSupport: "الدعم",
+      backToWebsite: "الموقع الكامل",
+    },
   },
   safety: {
     title: "إشعار مهم للسلامة والقانون",
@@ -371,6 +399,10 @@ const ar: Dictionary = {
         question: "هل تقدمون خدمة التركيب؟",
         answer:
           "نوفر وثائق التركيب ويمكننا ربطك بكهربائيين وفنيي تكييف معتمدين في المناطق المدعومة.",
+      },
+      {
+        question: "كيف أحصل على تطبيق EnergieMIND Shop؟",
+        answer: "افتح app.energiemind.shop على هاتفك وأضفه إلى الشاشة الرئيسية (Safari → مشاركة → إضافة إلى الشاشة الرئيسية على iPhone؛ Chrome → تثبيت التطبيق على Android). يوفر التطبيق وصولاً محمولاً للمتجر والعروض والدعم.",
       },
     ],
   },

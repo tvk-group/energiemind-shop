@@ -5,6 +5,7 @@ const da: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "Energibevidst minedrift og infrastrukturhardware",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "Hjem",
@@ -17,6 +18,7 @@ const da: Dictionary = {
     accessories: "Tilbehør",
     support: "Support",
     contact: "Kontakt",
+    app: "App",
   },
   hero: {
     headline: "Energibevidst minedrift og infrastrukturhardware",
@@ -24,6 +26,7 @@ const da: Dictionary = {
       "Udstyr til varmegenvinding fra minedrift, energiovervågning, solintegration og intelligente infrastruktursystemer.",
     browseProducts: "Gennemse produkter",
     requestCustomSetup: "Anmod om tilpasset opsætning",
+    getApp: "Hent appen",
   },
   categories: {
     "mining-heaters": {
@@ -319,6 +322,31 @@ const da: Dictionary = {
       heading: "Integrerede energisystemer",
       body: "Kombiner varmegenvinding fra minedrift, solproduktion og overvågning i realtid i en samlet energiinfrastruktur. Vi designer tilpassede hardwarepakker til boliger, erhverv og industri.",
     },
+    app: {
+      title: "EnergieMIND Shop-appen | Mobil hardwareportal",
+      description: "Installer EnergieMIND Shop-appen for at gennemse mining-hardware, anmode om tilbud og få support.",
+      heading: "EnergieMIND Shop-appen",
+      intro: "Din mobile portal til energibevidst mining-hardware. Gennemse produkter, send tilbud og kontakt teamet — optimeret til telefon og tablet.",
+      dashboard: "Dashboard",
+      quickActions: "Hurtige handlinger",
+      recentActivity: "Seneste tilbudsanmodninger",
+      noActivity: "Ingen tilbudsanmodninger endnu. Send din første forespørgsel fra fanen Tilbud.",
+      installTitle: "Installer butiksappen",
+      installIntro: "Tilføj EnergieMIND Shop til startskærmen — virker i dag via Føj til startskærm på iOS og Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Del → Føj til startskærm",
+      androidSteps: "Chrome → app.energiemind.shop → menu → Installer app eller Føj til startskærm",
+      desktopSteps: "Chrome eller Edge → installationsikon i adresselinjen eller bogmærk app.energiemind.shop",
+      openApp: "Åbn appen",
+      installed: "Appen er klar på enheden",
+      installPrompt: "Installer for hurtig adgang til tilbud og katalog",
+      installButton: "Installer app",
+      offlineNote: "Cachelagrede sider tilgængelige offline efter første besøg",
+      tabHome: "Hjem",
+      tabShop: "Butik",
+      tabQuote: "Tilbud",
+      tabSupport: "Support",
+      backToWebsite: "Fuld hjemmeside",
+    },
   },
   safety: {
     title: "Vigtig sikkerheds- og juridisk meddelelse",
@@ -370,6 +398,10 @@ const da: Dictionary = {
         question: "Tilbyder I installation?",
         answer:
           "Vi leverer installationsdokumentation og kan forbinde dig med certificerede elektrikere og HVAC-fagfolk i understøttede regioner.",
+      },
+      {
+        question: "Hvordan får jeg EnergieMIND Shop-appen?",
+        answer: "Åbn app.energiemind.shop på telefonen og tilføj til startskærmen (iPhone: Safari → Del → Føj til startskærm; Android: Chrome → Installer app). Appen giver mobil adgang til butik, tilbud og support.",
       },
     ],
   },
