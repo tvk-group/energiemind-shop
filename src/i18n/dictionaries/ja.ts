@@ -5,6 +5,7 @@ const ja: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "エネルギー最適化マイニング＆インフラハードウェア",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "ホーム",
@@ -17,6 +18,7 @@ const ja: Dictionary = {
     accessories: "アクセサリー",
     support: "サポート",
     contact: "お問い合わせ",
+    app: "アプリ",
   },
   hero: {
     headline: "エネルギー最適化マイニング＆インフラハードウェア",
@@ -24,6 +26,7 @@ const ja: Dictionary = {
       "マイニング熱活用、エネルギー監視、ソーラー統合、インテリジェントインフラ向けの機器をご提供します。",
     browseProducts: "製品を見る",
     requestCustomSetup: "カスタム構成を依頼",
+    getApp: "アプリを入手",
   },
   categories: {
     "mining-heaters": {
@@ -319,6 +322,31 @@ const ja: Dictionary = {
       heading: "統合エネルギーシステム",
       body:
         "マイニング熱活用、ソーラー発電、リアルタイム監視を統合したエネルギーインフラ。住宅、商業、産業向けのカスタムハードウェアバンドルを設計します。",
+    },
+    app: {
+      title: "EnergieMIND Shop アプリ | モバイルハードウェアポータル",
+      description: "EnergieMIND Shop アプリをインストールして、マイニング機器の閲覧、見積依頼、サポートにアクセス。",
+      heading: "EnergieMIND Shop アプリ",
+      intro: "エネルギー対応マイニング機器のモバイルポータル。製品閲覧、見積提出、チームへの連絡——スマホ・タブレット最適化。",
+      dashboard: "ダッシュボード",
+      quickActions: "クイックアクション",
+      recentActivity: "最近の見積依頼",
+      noActivity: "見積依頼はまだありません。見積タブから最初のお問い合わせを送信してください。",
+      installTitle: "ショップアプリをインストール",
+      installIntro: "EnergieMIND Shop をホーム画面に追加——iOS/Android の「ホーム画面に追加」で今日から利用可能。",
+      iphoneSteps: "Safari → app.energiemind.shop → 共有 → ホーム画面に追加",
+      androidSteps: "Chrome → app.energiemind.shop → メニュー → アプリをインストールまたはホーム画面に追加",
+      desktopSteps: "Chrome または Edge → アドレスバーのインストールアイコン、または app.energiemind.shop をブックマーク",
+      openApp: "アプリを開く",
+      installed: "デバイスでアプリの準備完了",
+      installPrompt: "見積とカタログへのクイックアクセスのためにインストール",
+      installButton: "アプリをインストール",
+      offlineNote: "初回訪問後、キャッシュされたページはオフラインで利用可能",
+      tabHome: "ホーム",
+      tabShop: "ショップ",
+      tabQuote: "見積",
+      tabSupport: "サポート",
+      backToWebsite: "フルサイト",
     },
   },
   safety: {

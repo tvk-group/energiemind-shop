@@ -55,6 +55,12 @@ export function Header({ locale, dict }: HeaderProps) {
 
           <div className="flex items-center gap-3">
             <Link
+              href={`/${locale}/app`}
+              className="hidden md:inline-flex px-3 py-2 text-sm font-medium text-energy-700 bg-energy-50 hover:bg-energy-100 rounded-md transition-colors"
+            >
+              {dict.nav.app}
+            </Link>
+            <Link
               href={`/${locale}/quote`}
               className="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-white bg-energy-600 hover:bg-energy-700 rounded-md transition-colors shadow-sm"
             >

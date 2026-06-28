@@ -1,0 +1,966 @@
+#!/usr/bin/env node
+/**
+ * Patches all locale dictionaries with app/PWA strings.
+ */
+import { readFileSync, writeFileSync, readdirSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const dictDir = join(__dirname, "../src/i18n/dictionaries");
+
+const appStrings = {
+  tr: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "Uygulama",
+    getApp: "Uygulamayı İndir",
+    app: {
+      title: "EnergieMIND Shop Uygulaması | Mobil Donanım Portalı",
+      description:
+        "Madencilik donanımına göz atmak, teklif talep etmek ve destek almak için EnergieMIND Shop uygulamasını ana ekranınıza ekleyin.",
+      heading: "EnergieMIND Shop Uygulaması",
+      intro:
+        "Enerji odaklı madencilik donanımı için mobil portalınız. Ürünlere göz atın, teklif gönderin ve ekibimizle iletişime geçin — telefon ve tablet için optimize edildi.",
+      dashboard: "Kontrol Paneli",
+      quickActions: "Hızlı İşlemler",
+      recentActivity: "Son Teklif Talepleri",
+      noActivity: "Henüz teklif talebi yok. Teklif sekmesinden ilk talebinizi gönderin.",
+      installTitle: "Mağaza Uygulamasını Yükleyin",
+      installIntro:
+        "Hızlı erişim için EnergieMIND Shop'u ana ekranınıza ekleyin — iOS ve Android'de Ana Ekrana Ekle ile bugün çalışır.",
+      iphoneSteps: "Safari → app.energiemind.shop → Paylaş → Ana Ekrana Ekle",
+      androidSteps: "Chrome → app.energiemind.shop → menü → Uygulamayı yükle veya Ana ekrana ekle",
+      desktopSteps: "Chrome veya Edge → adres çubuğundaki yükle simgesi veya app.energiemind.shop'u yer imlerine ekleyin",
+      openApp: "Uygulamayı Aç",
+      installed: "Uygulama cihazınızda hazır",
+      installPrompt: "Teklifler ve ürün kataloğuna hızlı erişim için yükleyin",
+      installButton: "Uygulamayı Yükle",
+      offlineNote: "İlk ziyaretten sonra önbelleğe alınan sayfalar çevrimdışı kullanılabilir",
+      tabHome: "Ana Sayfa",
+      tabShop: "Mağaza",
+      tabQuote: "Teklif",
+      tabSupport: "Destek",
+      backToWebsite: "Tam Site",
+    },
+    faq: {
+      question: "EnergieMIND Shop uygulamasını nasıl edinebilirim?",
+      answer:
+        "Telefonunuzda app.energiemind.shop adresini açın ve ana ekranınıza ekleyin (iPhone'da Safari → Paylaş → Ana Ekrana Ekle; Android'de Chrome → Uygulamayı yükle). Uygulama mağaza, teklif ve destek için mobil erişim sağlar.",
+    },
+  },
+  de: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "App",
+    getApp: "App holen",
+    app: {
+      title: "EnergieMIND Shop App | Mobiles Hardware-Portal",
+      description:
+        "Installieren Sie die EnergieMIND Shop App, um Mining-Hardware zu durchsuchen, Angebote anzufordern und Support zu erhalten.",
+      heading: "EnergieMIND Shop App",
+      intro:
+        "Ihr mobiles Portal für energiebewusste Mining-Hardware. Produkte durchsuchen, Angebote einreichen und unser Team kontaktieren — optimiert für Smartphone und Tablet.",
+      dashboard: "Dashboard",
+      quickActions: "Schnellaktionen",
+      recentActivity: "Letzte Angebotsanfragen",
+      noActivity: "Noch keine Angebotsanfragen. Senden Sie Ihre erste Anfrage über den Angebots-Tab.",
+      installTitle: "Shop-App installieren",
+      installIntro:
+        "Fügen Sie EnergieMIND Shop zum Startbildschirm hinzu — funktioniert heute über Zum Home-Bildschirm auf iOS und Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Teilen → Zum Home-Bildschirm",
+      androidSteps: "Chrome → app.energiemind.shop → Menü → App installieren oder Zum Startbildschirm",
+      desktopSteps: "Chrome oder Edge → Installationssymbol in der Adressleiste oder app.energiemind.shop als Lesezeichen",
+      openApp: "App öffnen",
+      installed: "App auf Ihrem Gerät bereit",
+      installPrompt: "Für schnellen Zugriff auf Angebote und Produktkatalog installieren",
+      installButton: "App installieren",
+      offlineNote: "Zwischengespeicherte Seiten nach dem ersten Besuch offline verfügbar",
+      tabHome: "Start",
+      tabShop: "Shop",
+      tabQuote: "Angebot",
+      tabSupport: "Support",
+      backToWebsite: "Vollständige Website",
+    },
+    faq: {
+      question: "Wie erhalte ich die EnergieMIND Shop App?",
+      answer:
+        "Öffnen Sie app.energiemind.shop auf Ihrem Telefon und fügen Sie es zum Startbildschirm hinzu (Safari → Teilen → Zum Home-Bildschirm auf iPhone; Chrome → App installieren auf Android). Die App bietet mobilen Zugang zu Shop, Angeboten und Support.",
+    },
+  },
+  fr: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "App",
+    getApp: "Obtenir l'app",
+    app: {
+      title: "App EnergieMIND Shop | Portail matériel mobile",
+      description:
+        "Installez l'app EnergieMIND Shop pour parcourir le matériel de minage, demander des devis et accéder au support.",
+      heading: "App EnergieMIND Shop",
+      intro:
+        "Votre portail mobile pour le matériel de minage écoénergétique. Parcourez les produits, soumettez des devis et contactez notre équipe — optimisé pour téléphone et tablette.",
+      dashboard: "Tableau de bord",
+      quickActions: "Actions rapides",
+      recentActivity: "Demandes de devis récentes",
+      noActivity: "Aucune demande de devis pour l'instant. Soumettez votre première demande via l'onglet Devis.",
+      installTitle: "Installer l'app Shop",
+      installIntro:
+        "Ajoutez EnergieMIND Shop à votre écran d'accueil — fonctionne aujourd'hui via Ajouter à l'écran d'accueil sur iOS et Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Partager → Sur l'écran d'accueil",
+      androidSteps: "Chrome → app.energiemind.shop → menu → Installer l'app ou Ajouter à l'écran d'accueil",
+      desktopSteps: "Chrome ou Edge → icône d'installation dans la barre d'adresse ou ajoutez app.energiemind.shop aux favoris",
+      openApp: "Ouvrir l'app",
+      installed: "App prête sur votre appareil",
+      installPrompt: "Installez pour un accès rapide aux devis et au catalogue",
+      installButton: "Installer l'app",
+      offlineNote: "Pages en cache disponibles hors ligne après la première visite",
+      tabHome: "Accueil",
+      tabShop: "Boutique",
+      tabQuote: "Devis",
+      tabSupport: "Support",
+      backToWebsite: "Site complet",
+    },
+    faq: {
+      question: "Comment obtenir l'app EnergieMIND Shop ?",
+      answer:
+        "Ouvrez app.energiemind.shop sur votre téléphone et ajoutez-le à l'écran d'accueil (Safari → Partager → Sur l'écran d'accueil sur iPhone ; Chrome → Installer l'app sur Android). L'app offre un accès mobile à la boutique, aux devis et au support.",
+    },
+  },
+  es: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "App",
+    getApp: "Obtener la app",
+    app: {
+      title: "App EnergieMIND Shop | Portal móvil de hardware",
+      description:
+        "Instale la app EnergieMIND Shop para explorar hardware de minería, solicitar presupuestos y acceder al soporte.",
+      heading: "App EnergieMIND Shop",
+      intro:
+        "Su portal móvil para hardware de minería consciente de la energía. Explore productos, envíe presupuestos y contacte a nuestro equipo — optimizado para teléfono y tableta.",
+      dashboard: "Panel",
+      quickActions: "Acciones rápidas",
+      recentActivity: "Solicitudes de presupuesto recientes",
+      noActivity: "Aún no hay solicitudes. Envíe su primera consulta desde la pestaña Presupuesto.",
+      installTitle: "Instalar la app de la tienda",
+      installIntro:
+        "Añada EnergieMIND Shop a su pantalla de inicio — funciona hoy con Añadir a pantalla de inicio en iOS y Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Compartir → Añadir a pantalla de inicio",
+      androidSteps: "Chrome → app.energiemind.shop → menú → Instalar app o Añadir a pantalla de inicio",
+      desktopSteps: "Chrome o Edge → icono de instalación en la barra de direcciones o marque app.energiemind.shop",
+      openApp: "Abrir app",
+      installed: "App lista en su dispositivo",
+      installPrompt: "Instale para acceso rápido a presupuestos y catálogo",
+      installButton: "Instalar app",
+      offlineNote: "Páginas en caché disponibles sin conexión tras la primera visita",
+      tabHome: "Inicio",
+      tabShop: "Tienda",
+      tabQuote: "Presupuesto",
+      tabSupport: "Soporte",
+      backToWebsite: "Sitio completo",
+    },
+    faq: {
+      question: "¿Cómo obtengo la app EnergieMIND Shop?",
+      answer:
+        "Abra app.energiemind.shop en su teléfono y añádalo a la pantalla de inicio (Safari → Compartir → Añadir a pantalla de inicio en iPhone; Chrome → Instalar app en Android). La app ofrece acceso móvil a la tienda, presupuestos y soporte.",
+    },
+  },
+  it: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "App",
+    getApp: "Scarica l'app",
+    app: {
+      title: "App EnergieMIND Shop | Portale hardware mobile",
+      description:
+        "Installa l'app EnergieMIND Shop per sfogliare hardware di mining, richiedere preventivi e accedere al supporto.",
+      heading: "App EnergieMIND Shop",
+      intro:
+        "Il tuo portale mobile per hardware di mining energy-aware. Sfoglia prodotti, invia preventivi e contatta il nostro team — ottimizzato per telefono e tablet.",
+      dashboard: "Dashboard",
+      quickActions: "Azioni rapide",
+      recentActivity: "Richieste di preventivo recenti",
+      noActivity: "Nessuna richiesta ancora. Invia la prima richiesta dalla scheda Preventivo.",
+      installTitle: "Installa l'app Shop",
+      installIntro:
+        "Aggiungi EnergieMIND Shop alla schermata Home — funziona oggi con Aggiungi a Home su iOS e Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Condividi → Aggiungi a Home",
+      androidSteps: "Chrome → app.energiemind.shop → menu → Installa app o Aggiungi a schermata Home",
+      desktopSteps: "Chrome o Edge → icona installa nella barra degli indirizzi o aggiungi app.energiemind.shop ai preferiti",
+      openApp: "Apri app",
+      installed: "App pronta sul dispositivo",
+      installPrompt: "Installa per accesso rapido a preventivi e catalogo",
+      installButton: "Installa app",
+      offlineNote: "Pagine in cache disponibili offline dopo la prima visita",
+      tabHome: "Home",
+      tabShop: "Shop",
+      tabQuote: "Preventivo",
+      tabSupport: "Supporto",
+      backToWebsite: "Sito completo",
+    },
+    faq: {
+      question: "Come ottengo l'app EnergieMIND Shop?",
+      answer:
+        "Apri app.energiemind.shop sul telefono e aggiungilo alla schermata Home (Safari → Condividi → Aggiungi a Home su iPhone; Chrome → Installa app su Android). L'app offre accesso mobile a shop, preventivi e supporto.",
+    },
+  },
+  pt: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "App",
+    getApp: "Obter o app",
+    app: {
+      title: "App EnergieMIND Shop | Portal móvel de hardware",
+      description:
+        "Instale o app EnergieMIND Shop para navegar hardware de mineração, solicitar orçamentos e aceder ao suporte.",
+      heading: "App EnergieMIND Shop",
+      intro:
+        "O seu portal móvel para hardware de mineração consciente da energia. Navegue produtos, envie orçamentos e contacte a nossa equipa — otimizado para telemóvel e tablet.",
+      dashboard: "Painel",
+      quickActions: "Ações rápidas",
+      recentActivity: "Pedidos de orçamento recentes",
+      noActivity: "Ainda sem pedidos. Envie o primeiro pedido no separador Orçamento.",
+      installTitle: "Instalar o app da loja",
+      installIntro:
+        "Adicione EnergieMIND Shop ao ecrã inicial — funciona hoje com Adicionar ao ecrã inicial no iOS e Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Partilhar → Adicionar ao ecrã inicial",
+      androidSteps: "Chrome → app.energiemind.shop → menu → Instalar app ou Adicionar ao ecrã inicial",
+      desktopSteps: "Chrome ou Edge → ícone de instalação na barra de endereços ou marque app.energiemind.shop",
+      openApp: "Abrir app",
+      installed: "App pronto no dispositivo",
+      installPrompt: "Instale para acesso rápido a orçamentos e catálogo",
+      installButton: "Instalar app",
+      offlineNote: "Páginas em cache disponíveis offline após a primeira visita",
+      tabHome: "Início",
+      tabShop: "Loja",
+      tabQuote: "Orçamento",
+      tabSupport: "Suporte",
+      backToWebsite: "Site completo",
+    },
+    faq: {
+      question: "Como obtenho o app EnergieMIND Shop?",
+      answer:
+        "Abra app.energiemind.shop no telemóvel e adicione ao ecrã inicial (Safari → Partilhar → Adicionar ao ecrã inicial no iPhone; Chrome → Instalar app no Android). O app oferece acesso móvel à loja, orçamentos e suporte.",
+    },
+  },
+  nl: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "App",
+    getApp: "App downloaden",
+    app: {
+      title: "EnergieMIND Shop App | Mobiel hardwareportaal",
+      description:
+        "Installeer de EnergieMIND Shop app om mininghardware te bekijken, offertes aan te vragen en support te krijgen.",
+      heading: "EnergieMIND Shop App",
+      intro:
+        "Uw mobiele portaal voor energiebewuste mininghardware. Bekijk producten, dien offertes in en neem contact op — geoptimaliseerd voor telefoon en tablet.",
+      dashboard: "Dashboard",
+      quickActions: "Snelle acties",
+      recentActivity: "Recente offerteaanvragen",
+      noActivity: "Nog geen offerteaanvragen. Dien uw eerste aanvraag in via het tabblad Offerte.",
+      installTitle: "Shop-app installeren",
+      installIntro:
+        "Voeg EnergieMIND Shop toe aan uw startscherm — werkt vandaag via Zet op beginscherm op iOS en Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Delen → Zet op beginscherm",
+      androidSteps: "Chrome → app.energiemind.shop → menu → App installeren of Toevoegen aan startscherm",
+      desktopSteps: "Chrome of Edge → installatiepictogram in de adresbalk of bladwijzer app.energiemind.shop",
+      openApp: "App openen",
+      installed: "App klaar op uw apparaat",
+      installPrompt: "Installeer voor snelle toegang tot offertes en catalogus",
+      installButton: "App installeren",
+      offlineNote: "Gecachte pagina's offline beschikbaar na eerste bezoek",
+      tabHome: "Home",
+      tabShop: "Shop",
+      tabQuote: "Offerte",
+      tabSupport: "Support",
+      backToWebsite: "Volledige website",
+    },
+    faq: {
+      question: "Hoe krijg ik de EnergieMIND Shop app?",
+      answer:
+        "Open app.energiemind.shop op uw telefoon en voeg toe aan het startscherm (Safari → Delen → Zet op beginscherm op iPhone; Chrome → App installeren op Android). De app biedt mobiele toegang tot shop, offertes en support.",
+    },
+  },
+  ar: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "التطبيق",
+    getApp: "احصل على التطبيق",
+    app: {
+      title: "تطبيق EnergieMIND Shop | بوابة الأجهزة المحمولة",
+      description:
+        "ثبّت تطبيق EnergieMIND Shop لتصفح أجهزة التعدين وطلب عروض الأسعار والوصول إلى الدعم.",
+      heading: "تطبيق EnergieMIND Shop",
+      intro:
+        "بوابتك المحمولة لأجهزة التعدين الواعية بالطاقة. تصفح المنتجات وأرسل طلبات العروض وتواصل مع فريقنا — محسّن للهاتف والجهاز اللوحي.",
+      dashboard: "لوحة التحكم",
+      quickActions: "إجراءات سريعة",
+      recentActivity: "طلبات العروض الأخيرة",
+      noActivity: "لا توجد طلبات عروض بعد. أرسل استفسارك الأول من تبويب العرض.",
+      installTitle: "تثبيت تطبيق المتجر",
+      installIntro:
+        "أضف EnergieMIND Shop إلى الشاشة الرئيسية — يعمل اليوم عبر الإضافة إلى الشاشة الرئيسية على iOS وAndroid.",
+      iphoneSteps: "Safari → app.energiemind.shop → مشاركة → إضافة إلى الشاشة الرئيسية",
+      androidSteps: "Chrome → app.energiemind.shop → القائمة → تثبيت التطبيق أو إضافة إلى الشاشة الرئيسية",
+      desktopSteps: "Chrome أو Edge → أيقونة التثبيت في شريط العنوان أو أضف app.energiemind.shop للمفضلة",
+      openApp: "فتح التطبيق",
+      installed: "التطبيق جاهز على جهازك",
+      installPrompt: "ثبّت للوصول السريع إلى العروض وكتالوج المنتجات",
+      installButton: "تثبيت التطبيق",
+      offlineNote: "الصفحات المخزنة متاحة دون اتصال بعد الزيارة الأولى",
+      tabHome: "الرئيسية",
+      tabShop: "المتجر",
+      tabQuote: "عرض",
+      tabSupport: "الدعم",
+      backToWebsite: "الموقع الكامل",
+    },
+    faq: {
+      question: "كيف أحصل على تطبيق EnergieMIND Shop؟",
+      answer:
+        "افتح app.energiemind.shop على هاتفك وأضفه إلى الشاشة الرئيسية (Safari → مشاركة → إضافة إلى الشاشة الرئيسية على iPhone؛ Chrome → تثبيت التطبيق على Android). يوفر التطبيق وصولاً محمولاً للمتجر والعروض والدعم.",
+    },
+  },
+  ru: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "Приложение",
+    getApp: "Скачать приложение",
+    app: {
+      title: "Приложение EnergieMIND Shop | Мобильный портал оборудования",
+      description:
+        "Установите приложение EnergieMIND Shop для просмотра майнинг-оборудования, запроса котировок и доступа к поддержке.",
+      heading: "Приложение EnergieMIND Shop",
+      intro:
+        "Ваш мобильный портал для энергоэффективного майнинг-оборудования. Просматривайте продукты, отправляйте запросы и связывайтесь с командой — оптимизировано для телефона и планшета.",
+      dashboard: "Панель",
+      quickActions: "Быстрые действия",
+      recentActivity: "Последние запросы котировок",
+      noActivity: "Запросов пока нет. Отправьте первый запрос во вкладке Котировка.",
+      installTitle: "Установить приложение магазина",
+      installIntro:
+        "Добавьте EnergieMIND Shop на главный экран — работает через «На экран Домой» на iOS и Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Поделиться → На экран Домой",
+      androidSteps: "Chrome → app.energiemind.shop → меню → Установить приложение или На главный экран",
+      desktopSteps: "Chrome или Edge → значок установки в адресной строке или добавьте app.energiemind.shop в закладки",
+      openApp: "Открыть приложение",
+      installed: "Приложение готово на устройстве",
+      installPrompt: "Установите для быстрого доступа к котировкам и каталогу",
+      installButton: "Установить приложение",
+      offlineNote: "Кэшированные страницы доступны офлайн после первого посещения",
+      tabHome: "Главная",
+      tabShop: "Магазин",
+      tabQuote: "Котировка",
+      tabSupport: "Поддержка",
+      backToWebsite: "Полный сайт",
+    },
+    faq: {
+      question: "Как получить приложение EnergieMIND Shop?",
+      answer:
+        "Откройте app.energiemind.shop на телефоне и добавьте на главный экран (Safari → Поделиться → На экран Домой на iPhone; Chrome → Установить приложение на Android). Приложение даёт мобильный доступ к магазину, котировкам и поддержке.",
+    },
+  },
+  "zh-cn": {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "应用",
+    getApp: "获取应用",
+    app: {
+      title: "EnergieMIND Shop 应用 | 移动硬件门户",
+      description: "安装 EnergieMIND Shop 应用，浏览挖矿硬件、请求报价并获取支持。",
+      heading: "EnergieMIND Shop 应用",
+      intro: "您的能源感知挖矿硬件移动门户。浏览产品、提交报价请求并联系我们的团队——针对手机和平板优化。",
+      dashboard: "仪表板",
+      quickActions: "快捷操作",
+      recentActivity: "最近的报价请求",
+      noActivity: "尚无报价请求。请从报价标签页提交您的第一个询价。",
+      installTitle: "安装商店应用",
+      installIntro: "将 EnergieMIND Shop 添加到主屏幕——iOS 和 Android 上通过添加到主屏幕即可使用。",
+      iphoneSteps: "Safari → app.energiemind.shop → 分享 → 添加到主屏幕",
+      androidSteps: "Chrome → app.energiemind.shop → 菜单 → 安装应用或添加到主屏幕",
+      desktopSteps: "Chrome 或 Edge → 地址栏安装图标，或收藏 app.energiemind.shop",
+      openApp: "打开应用",
+      installed: "应用已在设备上就绪",
+      installPrompt: "安装以快速访问报价和产品目录",
+      installButton: "安装应用",
+      offlineNote: "首次访问后缓存页面可离线使用",
+      tabHome: "首页",
+      tabShop: "商店",
+      tabQuote: "报价",
+      tabSupport: "支持",
+      backToWebsite: "完整网站",
+    },
+    faq: {
+      question: "如何获取 EnergieMIND Shop 应用？",
+      answer:
+        "在手机上打开 app.energiemind.shop 并添加到主屏幕（iPhone：Safari → 分享 → 添加到主屏幕；Android：Chrome → 安装应用）。应用提供商店、报价和支持的移动访问。",
+    },
+  },
+  "zh-tw": {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "應用程式",
+    getApp: "取得應用程式",
+    app: {
+      title: "EnergieMIND Shop 應用程式 | 行動硬體入口",
+      description: "安裝 EnergieMIND Shop 應用程式，瀏覽挖礦硬體、請求報價並取得支援。",
+      heading: "EnergieMIND Shop 應用程式",
+      intro: "您的能源感知挖礦硬體行動入口。瀏覽產品、提交報價請求並聯絡我們的團隊——針對手機和平板最佳化。",
+      dashboard: "儀表板",
+      quickActions: "快速操作",
+      recentActivity: "最近的報價請求",
+      noActivity: "尚無報價請求。請從報價分頁提交您的第一個詢價。",
+      installTitle: "安裝商店應用程式",
+      installIntro: "將 EnergieMIND Shop 加入主畫面——iOS 和 Android 上透過加入主畫面即可使用。",
+      iphoneSteps: "Safari → app.energiemind.shop → 分享 → 加入主畫面",
+      androidSteps: "Chrome → app.energiemind.shop → 選單 → 安裝應用程式或加入主畫面",
+      desktopSteps: "Chrome 或 Edge → 網址列安裝圖示，或加入 app.energiemind.shop 書籤",
+      openApp: "開啟應用程式",
+      installed: "應用程式已在裝置上就緒",
+      installPrompt: "安裝以快速存取報價和產品目錄",
+      installButton: "安裝應用程式",
+      offlineNote: "首次造訪後快取頁面可離線使用",
+      tabHome: "首頁",
+      tabShop: "商店",
+      tabQuote: "報價",
+      tabSupport: "支援",
+      backToWebsite: "完整網站",
+    },
+    faq: {
+      question: "如何取得 EnergieMIND Shop 應用程式？",
+      answer:
+        "在手機上開啟 app.energiemind.shop 並加入主畫面（iPhone：Safari → 分享 → 加入主畫面；Android：Chrome → 安裝應用程式）。應用程式提供商店、報價和支援的行動存取。",
+    },
+  },
+  ja: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "アプリ",
+    getApp: "アプリを入手",
+    app: {
+      title: "EnergieMIND Shop アプリ | モバイルハードウェアポータル",
+      description: "EnergieMIND Shop アプリをインストールして、マイニング機器の閲覧、見積依頼、サポートにアクセス。",
+      heading: "EnergieMIND Shop アプリ",
+      intro: "エネルギー対応マイニング機器のモバイルポータル。製品閲覧、見積提出、チームへの連絡——スマホ・タブレット最適化。",
+      dashboard: "ダッシュボード",
+      quickActions: "クイックアクション",
+      recentActivity: "最近の見積依頼",
+      noActivity: "見積依頼はまだありません。見積タブから最初のお問い合わせを送信してください。",
+      installTitle: "ショップアプリをインストール",
+      installIntro: "EnergieMIND Shop をホーム画面に追加——iOS/Android の「ホーム画面に追加」で今日から利用可能。",
+      iphoneSteps: "Safari → app.energiemind.shop → 共有 → ホーム画面に追加",
+      androidSteps: "Chrome → app.energiemind.shop → メニュー → アプリをインストールまたはホーム画面に追加",
+      desktopSteps: "Chrome または Edge → アドレスバーのインストールアイコン、または app.energiemind.shop をブックマーク",
+      openApp: "アプリを開く",
+      installed: "デバイスでアプリの準備完了",
+      installPrompt: "見積とカタログへのクイックアクセスのためにインストール",
+      installButton: "アプリをインストール",
+      offlineNote: "初回訪問後、キャッシュされたページはオフラインで利用可能",
+      tabHome: "ホーム",
+      tabShop: "ショップ",
+      tabQuote: "見積",
+      tabSupport: "サポート",
+      backToWebsite: "フルサイト",
+    },
+    faq: {
+      question: "EnergieMIND Shop アプリの入手方法は？",
+      answer:
+        "スマホで app.energiemind.shop を開き、ホーム画面に追加（iPhone：Safari → 共有 → ホーム画面に追加；Android：Chrome → アプリをインストール）。アプリはショップ、見積、サポートへのモバイルアクセスを提供します。",
+    },
+  },
+  ko: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "앱",
+    getApp: "앱 받기",
+    app: {
+      title: "EnergieMIND Shop 앱 | 모바일 하드웨어 포털",
+      description: "EnergieMIND Shop 앱을 설치하여 마이닝 하드웨어를 둘러보고 견적을 요청하며 지원에 액세스하세요.",
+      heading: "EnergieMIND Shop 앱",
+      intro: "에너지 인식 마이닝 하드웨어를 위한 모바일 포털. 제품 탐색, 견적 제출, 팀 연락 — 휴대폰 및 태블릿 최적화.",
+      dashboard: "대시보드",
+      quickActions: "빠른 작업",
+      recentActivity: "최근 견적 요청",
+      noActivity: "아직 견적 요청이 없습니다. 견적 탭에서 첫 문의를 제출하세요.",
+      installTitle: "샵 앱 설치",
+      installIntro: "EnergieMIND Shop을 홈 화면에 추가 — iOS/Android에서 홈 화면에 추가로 오늘 사용 가능.",
+      iphoneSteps: "Safari → app.energiemind.shop → 공유 → 홈 화면에 추가",
+      androidSteps: "Chrome → app.energiemind.shop → 메뉴 → 앱 설치 또는 홈 화면에 추가",
+      desktopSteps: "Chrome 또는 Edge → 주소창 설치 아이콘 또는 app.energiemind.shop 북마크",
+      openApp: "앱 열기",
+      installed: "기기에서 앱 준비 완료",
+      installPrompt: "견적 및 카탈로그 빠른 액세스를 위해 설치",
+      installButton: "앱 설치",
+      offlineNote: "첫 방문 후 캐시된 페이지 오프라인 사용 가능",
+      tabHome: "홈",
+      tabShop: "샵",
+      tabQuote: "견적",
+      tabSupport: "지원",
+      backToWebsite: "전체 웹사이트",
+    },
+    faq: {
+      question: "EnergieMIND Shop 앱은 어떻게 받나요?",
+      answer:
+        "휴대폰에서 app.energiemind.shop을 열고 홈 화면에 추가하세요 (iPhone: Safari → 공유 → 홈 화면에 추가; Android: Chrome → 앱 설치). 앱은 샵, 견적, 지원에 대한 모바일 액세스를 제공합니다.",
+    },
+  },
+  hi: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "ऐप",
+    getApp: "ऐप प्राप्त करें",
+    app: {
+      title: "EnergieMIND Shop ऐप | मोबाइल हार्डवेयर पोर्टल",
+      description: "माइनिंग हार्डवेयर ब्राउज़ करने, कोटेशन अनुरोध करने और सहायता पाने के लिए EnergieMIND Shop ऐप इंस्टॉल करें।",
+      heading: "EnergieMIND Shop ऐप",
+      intro: "ऊर्जा-जागरूक माइनिंग हार्डवेयर के लिए आपका मोबाइल पोर्टल। उत्पाद देखें, कोटेशन भेजें और हमारी टीम से संपर्क करें — फोन और टैबलेट के लिए अनुकूलित।",
+      dashboard: "डैशबोर्ड",
+      quickActions: "त्वरित कार्य",
+      recentActivity: "हाल के कोटेशन अनुरोध",
+      noActivity: "अभी तक कोई कोटेशन अनुरोध नहीं। कोटेशन टैब से अपना पहला अनुरोध भेजें।",
+      installTitle: "शॉप ऐप इंस्टॉल करें",
+      installIntro: "त्वरित पहुंच के लिए EnergieMIND Shop को होम स्क्रीन पर जोड़ें — iOS और Android पर आज ही काम करता है।",
+      iphoneSteps: "Safari → app.energiemind.shop → शेयर → होम स्क्रीन में जोड़ें",
+      androidSteps: "Chrome → app.energiemind.shop → मेनू → ऐप इंस्टॉल करें या होम स्क्रीन में जोड़ें",
+      desktopSteps: "Chrome या Edge → एड्रेस बार में इंस्टॉल आइकन या app.energiemind.shop बुकमार्क करें",
+      openApp: "ऐप खोलें",
+      installed: "ऐप आपके डिवाइस पर तैयार",
+      installPrompt: "कोटेशन और कैटलॉग तक त्वरित पहुंच के लिए इंस्टॉल करें",
+      installButton: "ऐप इंस्टॉल करें",
+      offlineNote: "पहली विज़िट के बाद कैश किए गए पेज ऑफलाइन उपलब्ध",
+      tabHome: "होम",
+      tabShop: "शॉप",
+      tabQuote: "कोटेशन",
+      tabSupport: "सहायता",
+      backToWebsite: "पूर्ण वेबसाइट",
+    },
+    faq: {
+      question: "EnergieMIND Shop ऐप कैसे प्राप्त करें?",
+      answer:
+        "अपने फोन पर app.energiemind.shop खोलें और होम स्क्रीन में जोड़ें (iPhone: Safari → शेयर → होम स्क्रीन में जोड़ें; Android: Chrome → ऐप इंस्टॉल करें)। ऐप शॉप, कोटेशन और सहायता के लिए मोबाइल एक्सेस प्रदान करता है।",
+    },
+  },
+  ur: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "ایپ",
+    getApp: "ایپ حاصل کریں",
+    app: {
+      title: "EnergieMIND Shop ایپ | موبائل ہارڈویئر پورٹل",
+      description: "مائننگ ہارڈویئر براؤز کرنے، کوٹیشن کی درخواست کرنے اور سپورٹ تک رسائی کے لیے EnergieMIND Shop ایپ انسٹال کریں۔",
+      heading: "EnergieMIND Shop ایپ",
+      intro: "توانائی سے آگاہ مائننگ ہارڈویئر کے لیے آپ کا موبائل پورٹل۔ مصنوعات دیکھیں، کوٹیشن بھیجیں اور ہماری ٹیم سے رابطہ کریں — فون اور ٹیبلٹ کے لیے بہتر۔",
+      dashboard: "ڈیش بورڈ",
+      quickActions: "فوری اقدامات",
+      recentActivity: "حالیہ کوٹیشن درخواستیں",
+      noActivity: "ابھی تک کوئی کوٹیشن درخواست نہیں۔ کوٹیشن ٹیب سے اپنی پہلی درخواست بھیجیں۔",
+      installTitle: "شاپ ایپ انسٹال کریں",
+      installIntro: "تیز رسائی کے لیے EnergieMIND Shop کو ہوم اسکرین پر شامل کریں — iOS اور Android پر آج ہی کام کرتا ہے۔",
+      iphoneSteps: "Safari → app.energiemind.shop → شیئر → ہوم اسکرین میں شامل کریں",
+      androidSteps: "Chrome → app.energiemind.shop → مینو → ایپ انسٹال کریں یا ہوم اسکرین میں شامل کریں",
+      desktopSteps: "Chrome یا Edge → ایڈریس بار میں انسٹال آئیکن یا app.energiemind.shop بک مارک کریں",
+      openApp: "ایپ کھولیں",
+      installed: "ایپ آپ کے ڈیوائس پر تیار",
+      installPrompt: "کوٹیشن اور کیٹلاگ تک فوری رسائی کے لیے انسٹال کریں",
+      installButton: "ایپ انسٹال کریں",
+      offlineNote: "پہلی وزٹ کے بعد کیش صفحات آف لائن دستیاب",
+      tabHome: "ہوم",
+      tabShop: "شاپ",
+      tabQuote: "کوٹیشن",
+      tabSupport: "سپورٹ",
+      backToWebsite: "مکمل ویب سائٹ",
+    },
+    faq: {
+      question: "EnergieMIND Shop ایپ کیسے حاصل کریں؟",
+      answer:
+        "اپنے فون پر app.energiemind.shop کھولیں اور ہوم اسکرین میں شامل کریں (iPhone: Safari → شیئر → ہوم اسکرین میں شامل کریں؛ Android: Chrome → ایپ انسٹال کریں)۔ ایپ شاپ، کوٹیشن اور سپورٹ کے لیے موبائل رسائی فراہم کرتی ہے۔",
+    },
+  },
+  pl: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "Aplikacja",
+    getApp: "Pobierz aplikację",
+    app: {
+      title: "Aplikacja EnergieMIND Shop | Mobilny portal sprzętowy",
+      description: "Zainstaluj aplikację EnergieMIND Shop, aby przeglądać sprzęt miningowy, prosić o wyceny i uzyskać wsparcie.",
+      heading: "Aplikacja EnergieMIND Shop",
+      intro: "Twój mobilny portal sprzętu miningowego świadomego energii. Przeglądaj produkty, wysyłaj wyceny i kontaktuj się z zespołem — zoptymalizowane dla telefonu i tabletu.",
+      dashboard: "Panel",
+      quickActions: "Szybkie akcje",
+      recentActivity: "Ostatnie zapytania o wycenę",
+      noActivity: "Brak zapytań o wycenę. Wyślij pierwsze zapytanie z zakładki Wycena.",
+      installTitle: "Zainstaluj aplikację sklepu",
+      installIntro: "Dodaj EnergieMIND Shop do ekranu głównego — działa dziś przez Dodaj do ekranu głównego na iOS i Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Udostępnij → Dodaj do ekranu początkowego",
+      androidSteps: "Chrome → app.energiemind.shop → menu → Zainstaluj aplikację lub Dodaj do ekranu głównego",
+      desktopSteps: "Chrome lub Edge → ikona instalacji w pasku adresu lub dodaj app.energiemind.shop do zakładek",
+      openApp: "Otwórz aplikację",
+      installed: "Aplikacja gotowa na urządzeniu",
+      installPrompt: "Zainstaluj dla szybkiego dostępu do wycen i katalogu",
+      installButton: "Zainstaluj aplikację",
+      offlineNote: "Strony w pamięci podręcznej dostępne offline po pierwszej wizycie",
+      tabHome: "Start",
+      tabShop: "Sklep",
+      tabQuote: "Wycena",
+      tabSupport: "Wsparcie",
+      backToWebsite: "Pełna strona",
+    },
+    faq: {
+      question: "Jak uzyskać aplikację EnergieMIND Shop?",
+      answer:
+        "Otwórz app.energiemind.shop na telefonie i dodaj do ekranu głównego (iPhone: Safari → Udostępnij → Dodaj do ekranu początkowego; Android: Chrome → Zainstaluj aplikację). Aplikacja zapewnia mobilny dostęp do sklepu, wycen i wsparcia.",
+    },
+  },
+  ro: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "Aplicație",
+    getApp: "Obține aplicația",
+    app: {
+      title: "Aplicația EnergieMIND Shop | Portal mobil hardware",
+      description: "Instalați aplicația EnergieMIND Shop pentru a răsfoi hardware de minare, solicita oferte și accesa suport.",
+      heading: "Aplicația EnergieMIND Shop",
+      intro: "Portalul mobil pentru hardware de minare conștient de energie. Răsfoiți produse, trimiteți oferte și contactați echipa — optimizat pentru telefon și tabletă.",
+      dashboard: "Panou",
+      quickActions: "Acțiuni rapide",
+      recentActivity: "Cereri de ofertă recente",
+      noActivity: "Încă nu există cereri. Trimiteți prima cerere din fila Ofertă.",
+      installTitle: "Instalați aplicația magazinului",
+      installIntro: "Adăugați EnergieMIND Shop pe ecranul principal — funcționează astăzi prin Adaugă pe ecranul principal pe iOS și Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Partajare → Adaugă pe ecranul principal",
+      androidSteps: "Chrome → app.energiemind.shop → meniu → Instalează aplicația sau Adaugă pe ecranul principal",
+      desktopSteps: "Chrome sau Edge → pictograma de instalare în bara de adrese sau marcați app.energiemind.shop",
+      openApp: "Deschide aplicația",
+      installed: "Aplicația este gata pe dispozitiv",
+      installPrompt: "Instalați pentru acces rapid la oferte și catalog",
+      installButton: "Instalează aplicația",
+      offlineNote: "Paginile din cache disponibile offline după prima vizită",
+      tabHome: "Acasă",
+      tabShop: "Magazin",
+      tabQuote: "Ofertă",
+      tabSupport: "Suport",
+      backToWebsite: "Site complet",
+    },
+    faq: {
+      question: "Cum obțin aplicația EnergieMIND Shop?",
+      answer:
+        "Deschideți app.energiemind.shop pe telefon și adăugați pe ecranul principal (iPhone: Safari → Partajare → Adaugă pe ecranul principal; Android: Chrome → Instalează aplicația). Aplicația oferă acces mobil la magazin, oferte și suport.",
+    },
+  },
+  el: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "Εφαρμογή",
+    getApp: "Λήψη εφαρμογής",
+    app: {
+      title: "Εφαρμογή EnergieMIND Shop | Κινητή πύλη υλικού",
+      description: "Εγκαταστήστε την εφαρμογή EnergieMIND Shop για περιήγηση σε εξοπλισμό mining, αιτήματα προσφορών και υποστήριξη.",
+      heading: "Εφαρμογή EnergieMIND Shop",
+      intro: "Η κινητή πύλη σας για εξοπλισμό mining ενεργειακά συνειδητό. Περιηγηθείτε σε προϊόντα, στείλτε προσφορές και επικοινωνήστε με την ομάδα — βελτιστοποιημένο για κινητό και tablet.",
+      dashboard: "Πίνακας",
+      quickActions: "Γρήγορες ενέργειες",
+      recentActivity: "Πρόσφατα αιτήματα προσφοράς",
+      noActivity: "Δεν υπάρχουν ακόμα αιτήματα. Στείλτε το πρώτο σας αίτημα από την καρτέλα Προσφορά.",
+      installTitle: "Εγκατάσταση εφαρμογής καταστήματος",
+      installIntro: "Προσθέστε το EnergieMIND Shop στην αρχική οθόνη — λειτουργεί σήμερα μέσω Προσθήκη στην αρχική οθόνη σε iOS και Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Κοινοποίηση → Προσθήκη στην αρχική οθόνη",
+      androidSteps: "Chrome → app.energiemind.shop → μενού → Εγκατάσταση εφαρμογής ή Προσθήκη στην αρχική οθόνη",
+      desktopSteps: "Chrome ή Edge → εικονίδιο εγκατάστασης στη γραμμή διευθύνσεων ή σελιδοδείκτης app.energiemind.shop",
+      openApp: "Άνοιγμα εφαρμογής",
+      installed: "Η εφαρμογή είναι έτοιμη στη συσκευή",
+      installPrompt: "Εγκαταστήστε για γρήγορη πρόσβαση σε προσφορές και κατάλογο",
+      installButton: "Εγκατάσταση εφαρμογής",
+      offlineNote: "Οι σελιδοθηκευμένες σελίδες διαθέσιμες εκτός σύνδεσης μετά την πρώτη επίσκεψη",
+      tabHome: "Αρχική",
+      tabShop: "Κατάστημα",
+      tabQuote: "Προσφορά",
+      tabSupport: "Υποστήριξη",
+      backToWebsite: "Πλήρης ιστοσελίδα",
+    },
+    faq: {
+      question: "Πώς αποκτώ την εφαρμογή EnergieMIND Shop;",
+      answer:
+        "Ανοίξτε το app.energiemind.shop στο κινητό και προσθέστε στην αρχική οθόνη (iPhone: Safari → Κοινοποίηση → Προσθήκη στην αρχική οθόνη; Android: Chrome → Εγκατάσταση εφαρμογής). Η εφαρμογή παρέχει κινητή πρόσβαση στο κατάστημα, προσφορές και υποστήριξη.",
+    },
+  },
+  sv: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "App",
+    getApp: "Hämta appen",
+    app: {
+      title: "EnergieMIND Shop-appen | Mobilt hårdvaruportal",
+      description: "Installera EnergieMIND Shop-appen för att bläddra i mining-hårdvara, begära offerter och få support.",
+      heading: "EnergieMIND Shop-appen",
+      intro: "Din mobila portal för energimedveten mining-hårdvara. Bläddra produkter, skicka offerter och kontakta teamet — optimerad för telefon och surfplatta.",
+      dashboard: "Instrumentpanel",
+      quickActions: "Snabbåtgärder",
+      recentActivity: "Senaste offertförfrågningar",
+      noActivity: "Inga offertförfrågningar ännu. Skicka din första förfrågan från fliken Offert.",
+      installTitle: "Installera butiksappen",
+      installIntro: "Lägg till EnergieMIND Shop på hemskärmen — fungerar idag via Lägg till på hemskärmen på iOS och Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Dela → Lägg till på hemskärmen",
+      androidSteps: "Chrome → app.energiemind.shop → meny → Installera app eller Lägg till på hemskärmen",
+      desktopSteps: "Chrome eller Edge → installationsikon i adressfältet eller bokmärk app.energiemind.shop",
+      openApp: "Öppna appen",
+      installed: "Appen är redo på enheten",
+      installPrompt: "Installera för snabb åtkomst till offerter och katalog",
+      installButton: "Installera app",
+      offlineNote: "Cachade sidor tillgängliga offline efter första besöket",
+      tabHome: "Hem",
+      tabShop: "Butik",
+      tabQuote: "Offert",
+      tabSupport: "Support",
+      backToWebsite: "Fullständig webbplats",
+    },
+    faq: {
+      question: "Hur får jag EnergieMIND Shop-appen?",
+      answer:
+        "Öppna app.energiemind.shop på telefonen och lägg till på hemskärmen (iPhone: Safari → Dela → Lägg till på hemskärmen; Android: Chrome → Installera app). Appen ger mobil åtkomst till butik, offerter och support.",
+    },
+  },
+  no: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "App",
+    getApp: "Hent appen",
+    app: {
+      title: "EnergieMIND Shop-appen | Mobil maskinvareportal",
+      description: "Installer EnergieMIND Shop-appen for å bla i mining-maskinvare, be om tilbud og få support.",
+      heading: "EnergieMIND Shop-appen",
+      intro: "Din mobile portal for energibevisst mining-maskinvare. Bla i produkter, send tilbud og kontakt teamet — optimalisert for telefon og nettbrett.",
+      dashboard: "Dashbord",
+      quickActions: "Hurtighandlinger",
+      recentActivity: "Siste tilbudsforespørsler",
+      noActivity: "Ingen tilbudsforespørsler ennå. Send din første forespørsel fra Tilbud-fanen.",
+      installTitle: "Installer butikkappen",
+      installIntro: "Legg til EnergieMIND Shop på hjemskjermen — fungerer i dag via Legg til på Hjem-skjerm på iOS og Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Del → Legg til på Hjem-skjerm",
+      androidSteps: "Chrome → app.energiemind.shop → meny → Installer app eller Legg til på hjemskjerm",
+      desktopSteps: "Chrome eller Edge → installeringsikon i adresselinjen eller bokmerk app.energiemind.shop",
+      openApp: "Åpne appen",
+      installed: "Appen er klar på enheten",
+      installPrompt: "Installer for rask tilgang til tilbud og katalog",
+      installButton: "Installer app",
+      offlineNote: "Bufrede sider tilgjengelig offline etter første besøk",
+      tabHome: "Hjem",
+      tabShop: "Butikk",
+      tabQuote: "Tilbud",
+      tabSupport: "Support",
+      backToWebsite: "Fullstendig nettsted",
+    },
+    faq: {
+      question: "Hvordan får jeg EnergieMIND Shop-appen?",
+      answer:
+        "Åpne app.energiemind.shop på telefonen og legg til på hjemskjermen (iPhone: Safari → Del → Legg til på Hjem-skjerm; Android: Chrome → Installer app). Appen gir mobil tilgang til butikk, tilbud og support.",
+    },
+  },
+  da: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "App",
+    getApp: "Hent appen",
+    app: {
+      title: "EnergieMIND Shop-appen | Mobil hardwareportal",
+      description: "Installer EnergieMIND Shop-appen for at gennemse mining-hardware, anmode om tilbud og få support.",
+      heading: "EnergieMIND Shop-appen",
+      intro: "Din mobile portal til energibevidst mining-hardware. Gennemse produkter, send tilbud og kontakt teamet — optimeret til telefon og tablet.",
+      dashboard: "Dashboard",
+      quickActions: "Hurtige handlinger",
+      recentActivity: "Seneste tilbudsanmodninger",
+      noActivity: "Ingen tilbudsanmodninger endnu. Send din første forespørgsel fra fanen Tilbud.",
+      installTitle: "Installer butiksappen",
+      installIntro: "Tilføj EnergieMIND Shop til startskærmen — virker i dag via Føj til startskærm på iOS og Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Del → Føj til startskærm",
+      androidSteps: "Chrome → app.energiemind.shop → menu → Installer app eller Føj til startskærm",
+      desktopSteps: "Chrome eller Edge → installationsikon i adresselinjen eller bogmærk app.energiemind.shop",
+      openApp: "Åbn appen",
+      installed: "Appen er klar på enheden",
+      installPrompt: "Installer for hurtig adgang til tilbud og katalog",
+      installButton: "Installer app",
+      offlineNote: "Cachelagrede sider tilgængelige offline efter første besøg",
+      tabHome: "Hjem",
+      tabShop: "Butik",
+      tabQuote: "Tilbud",
+      tabSupport: "Support",
+      backToWebsite: "Fuld hjemmeside",
+    },
+    faq: {
+      question: "Hvordan får jeg EnergieMIND Shop-appen?",
+      answer:
+        "Åbn app.energiemind.shop på telefonen og tilføj til startskærmen (iPhone: Safari → Del → Føj til startskærm; Android: Chrome → Installer app). Appen giver mobil adgang til butik, tilbud og support.",
+    },
+  },
+  fi: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "Sovellus",
+    getApp: "Hae sovellus",
+    app: {
+      title: "EnergieMIND Shop -sovellus | Mobiili laitteisto-portaali",
+      description: "Asenna EnergieMIND Shop -sovellus selataksesi louhintalaitteita, pyytääksesi tarjouksia ja saadaksesi tukea.",
+      heading: "EnergieMIND Shop -sovellus",
+      intro: "Mobiiliportaalisi energiatietoiselle louhintalaitteistolle. Selaa tuotteita, lähetä tarjouspyyntöjä ja ota yhteyttä tiimiin — optimoitu puhelimelle ja tabletille.",
+      dashboard: "Kojelauta",
+      quickActions: "Pikatoiminnot",
+      recentActivity: "Viimeisimmät tarjouspyynnöt",
+      noActivity: "Ei vielä tarjouspyyntöjä. Lähetä ensimmäinen pyyntö Tarjous-välilehdeltä.",
+      installTitle: "Asenna kauppasovellus",
+      installIntro: "Lisää EnergieMIND Shop kotinäytölle — toimii tänään Lisää kotinäytölle -toiminnolla iOS:llä ja Androidilla.",
+      iphoneSteps: "Safari → app.energiemind.shop → Jaa → Lisää kotinäytölle",
+      androidSteps: "Chrome → app.energiemind.shop → valikko → Asenna sovellus tai Lisää kotinäytölle",
+      desktopSteps: "Chrome tai Edge → asennuskuvake osoitepalkissa tai lisää app.energiemind.shop kirjanmerkkeihin",
+      openApp: "Avaa sovellus",
+      installed: "Sovellus valmiina laitteellasi",
+      installPrompt: "Asenna nopeaa pääsyä tarjouksiin ja luetteloon varten",
+      installButton: "Asenna sovellus",
+      offlineNote: "Välimuistissa olevat sivut käytettävissä offline-tilassa ensimmäisen käynnin jälkeen",
+      tabHome: "Koti",
+      tabShop: "Kauppa",
+      tabQuote: "Tarjous",
+      tabSupport: "Tuki",
+      backToWebsite: "Koko sivusto",
+    },
+    faq: {
+      question: "Miten saan EnergieMIND Shop -sovelluksen?",
+      answer:
+        "Avaa app.energiemind.shop puhelimella ja lisää kotinäytölle (iPhone: Safari → Jaa → Lisää kotinäytölle; Android: Chrome → Asenna sovellus). Sovellus tarjoaa mobiilipääsyn kauppaan, tarjouksiin ja tukeen.",
+    },
+  },
+  he: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "אפליקציה",
+    getApp: "קבל את האפליקציה",
+    app: {
+      title: "אפליקציית EnergieMIND Shop | פורטל חומרה נייד",
+      description: "התקן את אפליקציית EnergieMIND Shop לעיון בחומרת כרייה, בקשת הצעות מחיר וגישה לתמיכה.",
+      heading: "אפליקציית EnergieMIND Shop",
+      intro: "הפורטל הנייד שלך לחומרת כרייה מודעת אנרגיה. עיין במוצרים, שלח הצעות מחיר וצור קשר עם הצוות — מותאם לטלפון וטאבלט.",
+      dashboard: "לוח בקרה",
+      quickActions: "פעולות מהירות",
+      recentActivity: "בקשות הצעת מחיר אחרונות",
+      noActivity: "אין עדיין בקשות הצעת מחיר. שלח את הבקשה הראשונה שלך מלשונית הצעת מחיר.",
+      installTitle: "התקן את אפליקציית החנות",
+      installIntro: "הוסף את EnergieMIND Shop למסך הבית — עובד היום דרך הוסף למסך הבית ב-iOS ו-Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → שתף → הוסף למסך הבית",
+      androidSteps: "Chrome → app.energiemind.shop → תפריט → התקן אפליקציה או הוסף למסך הבית",
+      desktopSteps: "Chrome או Edge → סמל התקנה בשורת הכתובת או סמן app.energiemind.shop",
+      openApp: "פתח אפליקציה",
+      installed: "האפליקציה מוכנה במכשיר שלך",
+      installPrompt: "התקן לגישה מהירה להצעות מחיר וקטלוג",
+      installButton: "התקן אפליקציה",
+      offlineNote: "דפים במטמון זמינים לא מקוון לאחר הביקור הראשון",
+      tabHome: "בית",
+      tabShop: "חנות",
+      tabQuote: "הצעת מחיר",
+      tabSupport: "תמיכה",
+      backToWebsite: "אתר מלא",
+    },
+    faq: {
+      question: "איך מקבלים את אפליקציית EnergieMIND Shop?",
+      answer:
+        "פתח את app.energiemind.shop בטלפון והוסף למסך הבית (iPhone: Safari → שתף → הוסף למסך הבית; Android: Chrome → התקן אפליקציה). האפליקציה מספקת גישה ניידת לחנות, הצעות מחיר ותמיכה.",
+    },
+  },
+  id: {
+    appUrl: "https://app.energiemind.shop",
+    navApp: "Aplikasi",
+    getApp: "Dapatkan Aplikasi",
+    app: {
+      title: "Aplikasi EnergieMIND Shop | Portal Perangkat Keras Mobile",
+      description: "Instal aplikasi EnergieMIND Shop untuk menjelajahi perangkat keras mining, meminta penawaran, dan mengakses dukungan.",
+      heading: "Aplikasi EnergieMIND Shop",
+      intro: "Portal mobile Anda untuk perangkat keras mining sadar energi. Jelajahi produk, kirim penawaran, dan hubungi tim kami — dioptimalkan untuk ponsel dan tablet.",
+      dashboard: "Dasbor",
+      quickActions: "Tindakan Cepat",
+      recentActivity: "Permintaan Penawaran Terbaru",
+      noActivity: "Belum ada permintaan penawaran. Kirim permintaan pertama Anda dari tab Penawaran.",
+      installTitle: "Instal Aplikasi Toko",
+      installIntro: "Tambahkan EnergieMIND Shop ke layar utama — berfungsi hari ini melalui Tambahkan ke Layar Utama di iOS dan Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Bagikan → Tambahkan ke Layar Utama",
+      androidSteps: "Chrome → app.energiemind.shop → menu → Instal aplikasi atau Tambahkan ke layar utama",
+      desktopSteps: "Chrome atau Edge → ikon instal di bilah alamat atau tandai app.energiemind.shop",
+      openApp: "Buka Aplikasi",
+      installed: "Aplikasi siap di perangkat Anda",
+      installPrompt: "Instal untuk akses cepat ke penawaran dan katalog",
+      installButton: "Instal Aplikasi",
+      offlineNote: "Halaman cache tersedia offline setelah kunjungan pertama",
+      tabHome: "Beranda",
+      tabShop: "Toko",
+      tabQuote: "Penawaran",
+      tabSupport: "Dukungan",
+      backToWebsite: "Situs Lengkap",
+    },
+    faq: {
+      question: "Bagaimana cara mendapatkan aplikasi EnergieMIND Shop?",
+      answer:
+        "Buka app.energiemind.shop di ponsel Anda dan tambahkan ke layar utama (iPhone: Safari → Bagikan → Tambahkan ke Layar Utama; Android: Chrome → Instal aplikasi). Aplikasi menyediakan akses mobile ke toko, penawaran, dan dukungan.",
+    },
+  },
+};
+
+function formatAppBlock(app) {
+  return `    app: {
+      title: ${JSON.stringify(app.title)},
+      description: ${JSON.stringify(app.description)},
+      heading: ${JSON.stringify(app.heading)},
+      intro: ${JSON.stringify(app.intro)},
+      dashboard: ${JSON.stringify(app.dashboard)},
+      quickActions: ${JSON.stringify(app.quickActions)},
+      recentActivity: ${JSON.stringify(app.recentActivity)},
+      noActivity: ${JSON.stringify(app.noActivity)},
+      installTitle: ${JSON.stringify(app.installTitle)},
+      installIntro: ${JSON.stringify(app.installIntro)},
+      iphoneSteps: ${JSON.stringify(app.iphoneSteps)},
+      androidSteps: ${JSON.stringify(app.androidSteps)},
+      desktopSteps: ${JSON.stringify(app.desktopSteps)},
+      openApp: ${JSON.stringify(app.openApp)},
+      installed: ${JSON.stringify(app.installed)},
+      installPrompt: ${JSON.stringify(app.installPrompt)},
+      installButton: ${JSON.stringify(app.installButton)},
+      offlineNote: ${JSON.stringify(app.offlineNote)},
+      tabHome: ${JSON.stringify(app.tabHome)},
+      tabShop: ${JSON.stringify(app.tabShop)},
+      tabQuote: ${JSON.stringify(app.tabQuote)},
+      tabSupport: ${JSON.stringify(app.tabSupport)},
+      backToWebsite: ${JSON.stringify(app.backToWebsite)},
+    },`;
+}
+
+function formatFaqItem(faq) {
+  return `      {
+        question: ${JSON.stringify(faq.question)},
+        answer: ${JSON.stringify(faq.answer)},
+      },`;
+}
+
+for (const file of readdirSync(dictDir).filter((f) => f.endsWith(".ts") && f !== "en.ts")) {
+  const locale = file.replace(".ts", "");
+  const strings = appStrings[locale];
+  if (!strings) {
+    console.warn(`No strings for ${locale}, skipping`);
+    continue;
+  }
+
+  let content = readFileSync(join(dictDir, file), "utf8");
+
+  if (!content.includes("appUrl:")) {
+    content = content.replace(
+      /domain: "(https:\/\/energiemind\.shop)",/,
+      `domain: "https://energiemind.shop",\n    appUrl: "${strings.appUrl}",`
+    );
+  }
+
+  if (!content.includes('app: "') && !content.includes("app: '")) {
+    content = content.replace(
+      /contact: ([^,\n]+),(\s*\n\s*\},)/,
+      `contact: $1,\n    app: ${JSON.stringify(strings.navApp)},$2`
+    );
+  }
+
+  if (!content.includes("getApp:")) {
+    content = content.replace(
+      /requestCustomSetup: ([^,\n]+),/,
+      `requestCustomSetup: $1,\n    getApp: ${JSON.stringify(strings.getApp)},`
+    );
+  }
+
+  if (!content.includes("pages.app") && !content.match(/\n\s+app:\s*\{\n\s+title:/)) {
+    content = content.replace(
+      /(energySystems:\s*\{[\s\S]*?\},\n)(\s*\},)/,
+      `$1${formatAppBlock(strings.app)}\n$2`
+    );
+  }
+
+  if (!content.includes(strings.faq.question.slice(0, 20))) {
+    content = content.replace(
+      /(\{\s*\n\s*question: [^}]+\},\s*\n)(\s*\],)/,
+      `$1${formatFaqItem(strings.faq)}\n$2`
+    );
+  }
+
+  writeFileSync(join(dictDir, file), content);
+  console.log(`Patched ${file}`);
+}
+
+console.log("Done.");

@@ -5,6 +5,7 @@ const ko: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "에너지 최적화 마이닝 및 인프라 하드웨어",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "홈",
@@ -17,6 +18,7 @@ const ko: Dictionary = {
     accessories: "액세서리",
     support: "지원",
     contact: "문의",
+    app: "앱",
   },
   hero: {
     headline: "에너지 최적화 마이닝 및 인프라 하드웨어",
@@ -24,6 +26,7 @@ const ko: Dictionary = {
       "마이닝 열 활용, 에너지 모니터링, 태양광 통합 및 지능형 인프라 시스템을 위한 장비.",
     browseProducts: "제품 둘러보기",
     requestCustomSetup: "맞춤 구성 요청",
+    getApp: "앱 받기",
   },
   categories: {
     "mining-heaters": {
@@ -320,6 +323,31 @@ const ko: Dictionary = {
       body:
         "마이닝 열 활용, 태양광 발전 및 실시간 모니터링을 통합 에너지 인프라로 결합합니다. 주거, 상업 및 산업 배치를 위한 맞춤형 하드웨어 번들을 설계합니다.",
     },
+    app: {
+      title: "EnergieMIND Shop 앱 | 모바일 하드웨어 포털",
+      description: "EnergieMIND Shop 앱을 설치하여 마이닝 하드웨어를 둘러보고 견적을 요청하며 지원에 액세스하세요.",
+      heading: "EnergieMIND Shop 앱",
+      intro: "에너지 인식 마이닝 하드웨어를 위한 모바일 포털. 제품 탐색, 견적 제출, 팀 연락 — 휴대폰 및 태블릿 최적화.",
+      dashboard: "대시보드",
+      quickActions: "빠른 작업",
+      recentActivity: "최근 견적 요청",
+      noActivity: "아직 견적 요청이 없습니다. 견적 탭에서 첫 문의를 제출하세요.",
+      installTitle: "샵 앱 설치",
+      installIntro: "EnergieMIND Shop을 홈 화면에 추가 — iOS/Android에서 홈 화면에 추가로 오늘 사용 가능.",
+      iphoneSteps: "Safari → app.energiemind.shop → 공유 → 홈 화면에 추가",
+      androidSteps: "Chrome → app.energiemind.shop → 메뉴 → 앱 설치 또는 홈 화면에 추가",
+      desktopSteps: "Chrome 또는 Edge → 주소창 설치 아이콘 또는 app.energiemind.shop 북마크",
+      openApp: "앱 열기",
+      installed: "기기에서 앱 준비 완료",
+      installPrompt: "견적 및 카탈로그 빠른 액세스를 위해 설치",
+      installButton: "앱 설치",
+      offlineNote: "첫 방문 후 캐시된 페이지 오프라인 사용 가능",
+      tabHome: "홈",
+      tabShop: "샵",
+      tabQuote: "견적",
+      tabSupport: "지원",
+      backToWebsite: "전체 웹사이트",
+    },
   },
   safety: {
     title: "중요 안전 및 법적 고지",
@@ -371,6 +399,10 @@ const ko: Dictionary = {
         question: "설치 서비스를 제공하나요?",
         answer:
           "설치 문서를 제공하며 지원 지역의 인증 전기 기사 및 HVAC 전문가와 연결해 드릴 수 있습니다.",
+      },
+      {
+        question: "EnergieMIND Shop 앱은 어떻게 받나요?",
+        answer: "휴대폰에서 app.energiemind.shop을 열고 홈 화면에 추가하세요 (iPhone: Safari → 공유 → 홈 화면에 추가; Android: Chrome → 앱 설치). 앱은 샵, 견적, 지원에 대한 모바일 액세스를 제공합니다.",
       },
     ],
   },

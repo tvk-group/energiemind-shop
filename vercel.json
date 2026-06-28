@@ -63,6 +63,16 @@
       "source": "/quote",
       "destination": "/en/quote",
       "permanent": false
+    },
+    {
+      "source": "/app",
+      "destination": "/en/app",
+      "permanent": false
+    },
+    {
+      "source": "/app/:path*",
+      "destination": "/en/app/:path*",
+      "permanent": false
     }
   ]
 }

@@ -26,6 +26,7 @@ export interface Dictionary {
     name: string;
     tagline: string;
     domain: string;
+    appUrl: string;
   };
   nav: {
     home: string;
@@ -38,12 +39,14 @@ export interface Dictionary {
     accessories: string;
     support: string;
     contact: string;
+    app: string;
   };
   hero: {
     headline: string;
     subheadline: string;
     browseProducts: string;
     requestCustomSetup: string;
+    getApp: string;
   };
   categories: Record<string, CategoryTranslation>;
   productLabels: {
@@ -104,6 +107,29 @@ export interface Dictionary {
       success: string;
     };
     energySystems: PageMeta & { heading: string; body: string };
+    app: PageMeta & {
+      heading: string;
+      intro: string;
+      dashboard: string;
+      quickActions: string;
+      recentActivity: string;
+      noActivity: string;
+      installTitle: string;
+      installIntro: string;
+      iphoneSteps: string;
+      androidSteps: string;
+      desktopSteps: string;
+      openApp: string;
+      installed: string;
+      installPrompt: string;
+      installButton: string;
+      offlineNote: string;
+      tabHome: string;
+      tabShop: string;
+      tabQuote: string;
+      tabSupport: string;
+      backToWebsite: string;
+    };
   };
   safety: {
     title: string;

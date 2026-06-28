@@ -5,6 +5,7 @@ const zhTw: Dictionary = {
     name: "EnergieMIND 商店",
     tagline: "能源感知型挖礦與基礎設施硬體",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "首頁",
@@ -17,6 +18,7 @@ const zhTw: Dictionary = {
     accessories: "配件",
     support: "支援",
     contact: "聯絡我們",
+    app: "應用程式",
   },
   hero: {
     headline: "能源感知型挖礦與基礎設施硬體",
@@ -24,6 +26,7 @@ const zhTw: Dictionary = {
       "適用於挖礦餘熱利用、能源監測、太陽能整合及智慧基礎設施系統的設備。",
     browseProducts: "瀏覽產品",
     requestCustomSetup: "申請客製方案",
+    getApp: "取得應用程式",
   },
   categories: {
     "mining-heaters": {
@@ -320,6 +323,31 @@ const zhTw: Dictionary = {
       body:
         "將挖礦餘熱利用、太陽能發電及即時監測整合為統一的能源基礎設施。我們為住宅、商業及工業部署設計客製硬體套裝。",
     },
+    app: {
+      title: "EnergieMIND Shop 應用程式 | 行動硬體入口",
+      description: "安裝 EnergieMIND Shop 應用程式，瀏覽挖礦硬體、請求報價並取得支援。",
+      heading: "EnergieMIND Shop 應用程式",
+      intro: "您的能源感知挖礦硬體行動入口。瀏覽產品、提交報價請求並聯絡我們的團隊——針對手機和平板最佳化。",
+      dashboard: "儀表板",
+      quickActions: "快速操作",
+      recentActivity: "最近的報價請求",
+      noActivity: "尚無報價請求。請從報價分頁提交您的第一個詢價。",
+      installTitle: "安裝商店應用程式",
+      installIntro: "將 EnergieMIND Shop 加入主畫面——iOS 和 Android 上透過加入主畫面即可使用。",
+      iphoneSteps: "Safari → app.energiemind.shop → 分享 → 加入主畫面",
+      androidSteps: "Chrome → app.energiemind.shop → 選單 → 安裝應用程式或加入主畫面",
+      desktopSteps: "Chrome 或 Edge → 網址列安裝圖示，或加入 app.energiemind.shop 書籤",
+      openApp: "開啟應用程式",
+      installed: "應用程式已在裝置上就緒",
+      installPrompt: "安裝以快速存取報價和產品目錄",
+      installButton: "安裝應用程式",
+      offlineNote: "首次造訪後快取頁面可離線使用",
+      tabHome: "首頁",
+      tabShop: "商店",
+      tabQuote: "報價",
+      tabSupport: "支援",
+      backToWebsite: "完整網站",
+    },
   },
   safety: {
     title: "重要安全與法律聲明",
@@ -371,6 +399,10 @@ const zhTw: Dictionary = {
         question: "你們提供安裝服務嗎？",
         answer:
           "我們提供安裝文件，並可為您對接支援地區的持證電工及暖通專業人員。",
+      },
+      {
+        question: "如何取得 EnergieMIND Shop 應用程式？",
+        answer: "在手機上開啟 app.energiemind.shop 並加入主畫面（iPhone：Safari → 分享 → 加入主畫面；Android：Chrome → 安裝應用程式）。應用程式提供商店、報價和支援的行動存取。",
       },
     ],
   },

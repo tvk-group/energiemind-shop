@@ -5,6 +5,7 @@ const ur: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "توانائی سے آگاہ مائننگ اور انفراسٹرکچر ہارڈویئر",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "ہوم",
@@ -17,6 +18,7 @@ const ur: Dictionary = {
     accessories: "لوازمات",
     support: "معاونت",
     contact: "رابطہ",
+    app: "ایپ",
   },
   hero: {
     headline: "توانائی سے آگاہ مائننگ اور انفراسٹرکچر ہارڈویئر",
@@ -24,6 +26,7 @@ const ur: Dictionary = {
       "مائننگ حرارت کے استعمال، توانائی کی نگرانی، شمسی توانائی کے انضمام اور ذہین انفراسٹرکچر نظاموں کے لیے آلات۔",
     browseProducts: "مصنوعات دیکھیں",
     requestCustomSetup: "حسبِ ضرورت سیٹ اپ کی درخواست",
+    getApp: "ایپ حاصل کریں",
   },
   categories: {
     "mining-heaters": {
@@ -319,6 +322,31 @@ const ur: Dictionary = {
       heading: "مربوط توانائی کے نظام",
       body:
         "مائننگ حرارت کے استعمال، شمسی پیداوار اور حقیقی وقت کی نگرانی کو یکجا توانائی کے انفراسٹرکچر میں یکجا کریں۔ ہم رہائشی، تجارتی اور صنعتی تعیناتی کے لیے حسبِ ضرورت ہارڈویئر بنڈلز ڈیزائن کرتے ہیں۔",
+    },
+    app: {
+      title: "EnergieMIND Shop ایپ | موبائل ہارڈویئر پورٹل",
+      description: "مائننگ ہارڈویئر براؤز کرنے، کوٹیشن کی درخواست کرنے اور سپورٹ تک رسائی کے لیے EnergieMIND Shop ایپ انسٹال کریں۔",
+      heading: "EnergieMIND Shop ایپ",
+      intro: "توانائی سے آگاہ مائننگ ہارڈویئر کے لیے آپ کا موبائل پورٹل۔ مصنوعات دیکھیں، کوٹیشن بھیجیں اور ہماری ٹیم سے رابطہ کریں — فون اور ٹیبلٹ کے لیے بہتر۔",
+      dashboard: "ڈیش بورڈ",
+      quickActions: "فوری اقدامات",
+      recentActivity: "حالیہ کوٹیشن درخواستیں",
+      noActivity: "ابھی تک کوئی کوٹیشن درخواست نہیں۔ کوٹیشن ٹیب سے اپنی پہلی درخواست بھیجیں۔",
+      installTitle: "شاپ ایپ انسٹال کریں",
+      installIntro: "تیز رسائی کے لیے EnergieMIND Shop کو ہوم اسکرین پر شامل کریں — iOS اور Android پر آج ہی کام کرتا ہے۔",
+      iphoneSteps: "Safari → app.energiemind.shop → شیئر → ہوم اسکرین میں شامل کریں",
+      androidSteps: "Chrome → app.energiemind.shop → مینو → ایپ انسٹال کریں یا ہوم اسکرین میں شامل کریں",
+      desktopSteps: "Chrome یا Edge → ایڈریس بار میں انسٹال آئیکن یا app.energiemind.shop بک مارک کریں",
+      openApp: "ایپ کھولیں",
+      installed: "ایپ آپ کے ڈیوائس پر تیار",
+      installPrompt: "کوٹیشن اور کیٹلاگ تک فوری رسائی کے لیے انسٹال کریں",
+      installButton: "ایپ انسٹال کریں",
+      offlineNote: "پہلی وزٹ کے بعد کیش صفحات آف لائن دستیاب",
+      tabHome: "ہوم",
+      tabShop: "شاپ",
+      tabQuote: "کوٹیشن",
+      tabSupport: "سپورٹ",
+      backToWebsite: "مکمل ویب سائٹ",
     },
   },
   safety: {

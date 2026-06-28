@@ -5,6 +5,7 @@ const fr: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "Matériel de minage et d'infrastructure écoénergétique",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "Accueil",
@@ -17,6 +18,7 @@ const fr: Dictionary = {
     accessories: "Accessoires",
     support: "Assistance",
     contact: "Contact",
+    app: "App",
   },
   hero: {
     headline: "Matériel de minage et d'infrastructure écoénergétique",
@@ -24,6 +26,7 @@ const fr: Dictionary = {
       "Équipement pour la valorisation thermique du minage, la surveillance énergétique, l'intégration solaire et les systèmes d'infrastructure intelligents.",
     browseProducts: "Parcourir les produits",
     requestCustomSetup: "Demander une installation sur mesure",
+    getApp: "Obtenir l'app",
   },
   categories: {
     "mining-heaters": {
@@ -320,6 +323,31 @@ const fr: Dictionary = {
       body:
         "Combinez la valorisation thermique du minage, la production solaire et la surveillance en temps réel dans une infrastructure énergétique unifiée. Nous concevons des ensembles matériels sur mesure pour les déploiements résidentiels, commerciaux et industriels.",
     },
+    app: {
+      title: "App EnergieMIND Shop | Portail matériel mobile",
+      description: "Installez l'app EnergieMIND Shop pour parcourir le matériel de minage, demander des devis et accéder au support.",
+      heading: "App EnergieMIND Shop",
+      intro: "Votre portail mobile pour le matériel de minage écoénergétique. Parcourez les produits, soumettez des devis et contactez notre équipe — optimisé pour téléphone et tablette.",
+      dashboard: "Tableau de bord",
+      quickActions: "Actions rapides",
+      recentActivity: "Demandes de devis récentes",
+      noActivity: "Aucune demande de devis pour l'instant. Soumettez votre première demande via l'onglet Devis.",
+      installTitle: "Installer l'app Shop",
+      installIntro: "Ajoutez EnergieMIND Shop à votre écran d'accueil — fonctionne aujourd'hui via Ajouter à l'écran d'accueil sur iOS et Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Partager → Sur l'écran d'accueil",
+      androidSteps: "Chrome → app.energiemind.shop → menu → Installer l'app ou Ajouter à l'écran d'accueil",
+      desktopSteps: "Chrome ou Edge → icône d'installation dans la barre d'adresse ou ajoutez app.energiemind.shop aux favoris",
+      openApp: "Ouvrir l'app",
+      installed: "App prête sur votre appareil",
+      installPrompt: "Installez pour un accès rapide aux devis et au catalogue",
+      installButton: "Installer l'app",
+      offlineNote: "Pages en cache disponibles hors ligne après la première visite",
+      tabHome: "Accueil",
+      tabShop: "Boutique",
+      tabQuote: "Devis",
+      tabSupport: "Support",
+      backToWebsite: "Site complet",
+    },
   },
   safety: {
     title: "Avis important de sécurité et juridique",
@@ -371,6 +399,10 @@ const fr: Dictionary = {
         question: "Proposez-vous l'installation ?",
         answer:
           "Nous fournissons la documentation d'installation et pouvons vous mettre en relation avec des électriciens certifiés et des professionnels CVC dans les régions prises en charge.",
+      },
+      {
+        question: "Comment obtenir l'app EnergieMIND Shop ?",
+        answer: "Ouvrez app.energiemind.shop sur votre téléphone et ajoutez-le à l'écran d'accueil (Safari → Partager → Sur l'écran d'accueil sur iPhone ; Chrome → Installer l'app sur Android). L'app offre un accès mobile à la boutique, aux devis et au support.",
       },
     ],
   },

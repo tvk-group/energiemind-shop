@@ -1,8 +1,8 @@
 import type { Locale } from "@/i18n/config";
 import { locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { SiteChrome } from "@/components/SiteChrome";
+import { PwaRegister } from "@/components/PwaRegister";
 import { notFound } from "next/navigation";
 
 import { HtmlAttributes } from "@/components/HtmlAttributes";
@@ -25,9 +25,10 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <>
       <HtmlAttributes locale={locale} />
-      <Header locale={locale} dict={dict} />
-      <main className="flex-1">{children}</main>
-      <Footer locale={locale} dict={dict} />
+      <PwaRegister />
+      <SiteChrome locale={locale} dict={dict}>
+        {children}
+      </SiteChrome>
     </>
   );
 }

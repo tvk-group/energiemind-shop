@@ -5,6 +5,7 @@ const ro: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "Hardware pentru minare și infrastructură conștientă de energie",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "Acasă",
@@ -17,6 +18,7 @@ const ro: Dictionary = {
     accessories: "Accesorii",
     support: "Asistență",
     contact: "Contact",
+    app: "Aplicație",
   },
   hero: {
     headline: "Hardware pentru minare și infrastructură conștientă de energie",
@@ -24,6 +26,7 @@ const ro: Dictionary = {
       "Echipamente pentru utilizarea căldurii din minare, monitorizarea energiei, integrarea solară și sisteme de infrastructură inteligentă.",
     browseProducts: "Răsfoiește produsele",
     requestCustomSetup: "Solicită configurare personalizată",
+    getApp: "Obține aplicația",
   },
   categories: {
     "mining-heaters": {
@@ -319,6 +322,31 @@ const ro: Dictionary = {
       heading: "Sisteme energetice integrate",
       body: "Combinați utilizarea căldurii din minare, generarea solară și monitorizarea în timp real într-o infrastructură energetică unificată. Proiectăm pachete hardware personalizate pentru implementări rezidențiale, comerciale și industriale.",
     },
+    app: {
+      title: "Aplicația EnergieMIND Shop | Portal mobil hardware",
+      description: "Instalați aplicația EnergieMIND Shop pentru a răsfoi hardware de minare, solicita oferte și accesa suport.",
+      heading: "Aplicația EnergieMIND Shop",
+      intro: "Portalul mobil pentru hardware de minare conștient de energie. Răsfoiți produse, trimiteți oferte și contactați echipa — optimizat pentru telefon și tabletă.",
+      dashboard: "Panou",
+      quickActions: "Acțiuni rapide",
+      recentActivity: "Cereri de ofertă recente",
+      noActivity: "Încă nu există cereri. Trimiteți prima cerere din fila Ofertă.",
+      installTitle: "Instalați aplicația magazinului",
+      installIntro: "Adăugați EnergieMIND Shop pe ecranul principal — funcționează astăzi prin Adaugă pe ecranul principal pe iOS și Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Partajare → Adaugă pe ecranul principal",
+      androidSteps: "Chrome → app.energiemind.shop → meniu → Instalează aplicația sau Adaugă pe ecranul principal",
+      desktopSteps: "Chrome sau Edge → pictograma de instalare în bara de adrese sau marcați app.energiemind.shop",
+      openApp: "Deschide aplicația",
+      installed: "Aplicația este gata pe dispozitiv",
+      installPrompt: "Instalați pentru acces rapid la oferte și catalog",
+      installButton: "Instalează aplicația",
+      offlineNote: "Paginile din cache disponibile offline după prima vizită",
+      tabHome: "Acasă",
+      tabShop: "Magazin",
+      tabQuote: "Ofertă",
+      tabSupport: "Suport",
+      backToWebsite: "Site complet",
+    },
   },
   safety: {
     title: "Notificare importantă privind siguranța și aspectele legale",
@@ -370,6 +398,10 @@ const ro: Dictionary = {
         question: "Oferiți instalare?",
         answer:
           "Oferim documentație de instalare și vă putem conecta cu electricieni certificați și specialiști HVAC din regiunile deservite.",
+      },
+      {
+        question: "Cum obțin aplicația EnergieMIND Shop?",
+        answer: "Deschideți app.energiemind.shop pe telefon și adăugați pe ecranul principal (iPhone: Safari → Partajare → Adaugă pe ecranul principal; Android: Chrome → Instalează aplicația). Aplicația oferă acces mobil la magazin, oferte și suport.",
       },
     ],
   },

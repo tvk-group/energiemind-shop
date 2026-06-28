@@ -5,6 +5,7 @@ const de: Dictionary = {
     name: "EnergieMIND Shop",
     tagline: "Energiebewusste Mining- und Infrastruktur-Hardware",
     domain: "https://energiemind.shop",
+    appUrl: "https://app.energiemind.shop",
   },
   nav: {
     home: "Startseite",
@@ -17,6 +18,7 @@ const de: Dictionary = {
     accessories: "Zubehör",
     support: "Support",
     contact: "Kontakt",
+    app: "App",
   },
   hero: {
     headline: "Energiebewusste Mining- und Infrastruktur-Hardware",
@@ -24,6 +26,7 @@ const de: Dictionary = {
       "Ausrüstung für Mining-Wärmenutzung, Energieüberwachung, Solarintegration und intelligente Infrastruktursysteme.",
     browseProducts: "Produkte durchsuchen",
     requestCustomSetup: "Individuelle Installation anfragen",
+    getApp: "App holen",
   },
   categories: {
     "mining-heaters": {
@@ -320,6 +323,31 @@ const de: Dictionary = {
       body:
         "Kombinieren Sie Mining-Wärmenutzung, Solarerzeugung und Echtzeitüberwachung in einer einheitlichen Energieinfrastruktur. Wir entwerfen individuelle Hardware-Bundles für Wohn-, Gewerbe- und Industrieinstallationen.",
     },
+    app: {
+      title: "EnergieMIND Shop App | Mobiles Hardware-Portal",
+      description: "Installieren Sie die EnergieMIND Shop App, um Mining-Hardware zu durchsuchen, Angebote anzufordern und Support zu erhalten.",
+      heading: "EnergieMIND Shop App",
+      intro: "Ihr mobiles Portal für energiebewusste Mining-Hardware. Produkte durchsuchen, Angebote einreichen und unser Team kontaktieren — optimiert für Smartphone und Tablet.",
+      dashboard: "Dashboard",
+      quickActions: "Schnellaktionen",
+      recentActivity: "Letzte Angebotsanfragen",
+      noActivity: "Noch keine Angebotsanfragen. Senden Sie Ihre erste Anfrage über den Angebots-Tab.",
+      installTitle: "Shop-App installieren",
+      installIntro: "Fügen Sie EnergieMIND Shop zum Startbildschirm hinzu — funktioniert heute über Zum Home-Bildschirm auf iOS und Android.",
+      iphoneSteps: "Safari → app.energiemind.shop → Teilen → Zum Home-Bildschirm",
+      androidSteps: "Chrome → app.energiemind.shop → Menü → App installieren oder Zum Startbildschirm",
+      desktopSteps: "Chrome oder Edge → Installationssymbol in der Adressleiste oder app.energiemind.shop als Lesezeichen",
+      openApp: "App öffnen",
+      installed: "App auf Ihrem Gerät bereit",
+      installPrompt: "Für schnellen Zugriff auf Angebote und Produktkatalog installieren",
+      installButton: "App installieren",
+      offlineNote: "Zwischengespeicherte Seiten nach dem ersten Besuch offline verfügbar",
+      tabHome: "Start",
+      tabShop: "Shop",
+      tabQuote: "Angebot",
+      tabSupport: "Support",
+      backToWebsite: "Vollständige Website",
+    },
   },
   safety: {
     title: "Wichtiger Sicherheits- und Rechtshinweis",
@@ -371,6 +399,10 @@ const de: Dictionary = {
         question: "Bieten Sie Installation an?",
         answer:
           "Wir stellen Installationsdokumentation bereit und können Sie mit zertifizierten Elektrikern und HVAC-Fachleuten in unterstützten Regionen verbinden.",
+      },
+      {
+        question: "Wie erhalte ich die EnergieMIND Shop App?",
+        answer: "Öffnen Sie app.energiemind.shop auf Ihrem Telefon und fügen Sie es zum Startbildschirm hinzu (Safari → Teilen → Zum Home-Bildschirm auf iPhone; Chrome → App installieren auf Android). Die App bietet mobilen Zugang zu Shop, Angeboten und Support.",
       },
     ],
   },

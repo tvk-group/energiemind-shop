@@ -7,6 +7,7 @@ import { CategoryGrid } from "@/components/CategoryGrid";
 import { ProductCard } from "@/components/ProductCard";
 import { SafetyDisclaimer } from "@/components/SafetyDisclaimer";
 import { FaqSection } from "@/components/FaqSection";
+import { AppInstallSection } from "@/components/AppInstallSection";
 import { JsonLd } from "@/components/JsonLd";
 import { products } from "@/data/products";
 import {
@@ -78,6 +79,8 @@ export default async function HomePage({ params }: PageProps) {
           <SafetyDisclaimer dict={dict} />
         </div>
       </section>
+
+      <AppInstallSection locale={locale} dict={dict} />
 
       <FaqSection dict={dict} />
     </>
